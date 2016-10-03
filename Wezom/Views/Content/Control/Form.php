@@ -16,12 +16,6 @@
                         <label class="control-label">Название</label>
                         <b class="red"><?php echo $obj->name; ?></b>
                     </div>
-                    <div class="form-group">
-                        <?php echo \Forms\Builder::tiny(array(
-                            'name' => 'FORM[text]',
-                            'value' => $obj->text,
-                        ), 'Контент'); ?>
-                    </div>
                     <?php if($obj->alias == 'contact'): ?>
                         <div class="form-group">
                             <?php echo \Forms\Builder::textarea(array(

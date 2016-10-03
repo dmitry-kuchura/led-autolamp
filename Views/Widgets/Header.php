@@ -7,14 +7,14 @@
             </span>
         </div>
         <div class="phone_graf_top w_flr">
-            <a href="tel:380990902856?call" class="phone_top">
+            <a href="tel:<?php echo preg_replace('/[^0-9]/', '', Config::get('static.phone_1')); ?>?call" class="phone_top">
                 <svg>
                     <use xlink:href="#icon_phone"/>
                 </svg>
                 <span><?php echo Config::get('static.phone_1') ?></span>
             </a>
             <?php if (Config::get('static.phone_2')): ?>
-                <a href="tel:380990902856?call" class="phone_top">
+                <a href="tel:<?php echo preg_replace('/[^0-9]/', '', Config::get('static.phone_2')); ?>?call" class="phone_top">
                     <svg>
                         <use xlink:href="#icon_phone"/>
                     </svg>

@@ -65,6 +65,9 @@ class WidgetsBackend
         $counts = array();
         $counts['contacts'] = (int)DB::select(array(DB::expr('COUNT(id)'), 'count'))->from('contacts')->where('status', '=', 0)->count_all();
         $counts['callbacks'] = (int)DB::select(array(DB::expr('COUNT(id)'), 'count'))->from('callback')->where('status', '=', 0)->count_all();
+        $counts['orders'] = (int)DB::select(array(DB::expr('COUNT(id)'), 'count'))->from('orders')->where('status', '=', 0)->count_all();
+        $counts['simple_orders'] = (int)DB::select(array(DB::expr('COUNT(id)'), 'count'))->from('orders_simple')->where('status', '=', 0)->count_all();
+        $counts['all_orders'] = $counts['orders'] + $counts['simple_orders'];
         $counts['all_emails'] = $counts['contacts'] + $counts['callbacks'];
         $counts['reviews'] = (int)DB::select(array(DB::expr('COUNT(id)'), 'count'))->from('reviews')->where('status', '=', 0)->count_all();
 
@@ -164,7 +167,7 @@ class WidgetsBackend
 
     public function Index_Orders()
     {
-        //$orders = Orders::getRows(NULL, NULL, NULL, 'id', 'DESC', 7);
+        $orders = DB::select()->from('orders')->order_by('id', 'DESC')->limit(7)->find_all();
         return array(
             'orders' => $orders,
             'statuses' => Config::get('order.statuses'),

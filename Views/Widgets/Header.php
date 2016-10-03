@@ -1,3 +1,4 @@
+<?php use Core\Config; ?>
 <header class="wHeader">
     <div class="wSize">
         <div class="logo_block w_fll">
@@ -10,15 +11,23 @@
                 <svg>
                     <use xlink:href="#icon_phone"/>
                 </svg>
-                <span>+380 99 090-28-56</span>
+                <span><?php echo Config::get('static.phone_1') ?></span>
             </a>
+            <?php if (Config::get('static.phone_2')): ?>
+                <a href="tel:380990902856?call" class="phone_top">
+                    <svg>
+                        <use xlink:href="#icon_phone"/>
+                    </svg>
+                    <span><?php echo Config::get('static.phone_2') ?></span>
+                </a>
+            <?php endif; ?>
             <span class="graf_top">
                 <svg>
                     <use xlink:href="#icon_clock"/>
                 </svg>
                 <div class="graf_info">
-                    <span>ПН-ПТ 09:00-18:00</span>
-                    <span>СБ-ВС 10:00-16:00</span>
+                    <span><?php echo Config::get('static.week') ?></span>
+                    <span><?php echo Config::get('static.weekend') ?></span>
                 </div>
             </span>
         </div>

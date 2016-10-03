@@ -1,3 +1,4 @@
+<?php use Core\Config; ?>
 <div class="advantages js-advantages">
     <div class="wSize">
         <div class="pageTitle">преимущества лампы <br>NAPO model С</div>
@@ -146,30 +147,46 @@
                 </div>
             </div>
         </div>
-        <div class="sale_block">
-            <div class="sale_title"><span>скидка 11%</span> с 29.06 до 11.08</div>
-            <div data-form="true" class="sale_form wForm wFormDef">
-                <div class="wFormRow">
-                    <label for="name2">Введите имя</label>
-                    <input type="text" required name="name2" data-rule-mminlength="2" data-rule-word="true"
-                           id="name2" class="wInput">
+        <?php if (Config::get('discount.enable') == 1): ?>
+            <div class="sale_block">
+                <?php
+                $from = strtotime(Config::get('discount.date_from'));
+                $to = strtotime(Config::get('discount.date_to'));
+                ?>
+                <div class="sale_title"><span>скидка <?php echo Config::get('discount.percent'); ?>%</span>
+                    с <?php echo date('d.m', $from); ?> до <?php echo date('d.m', $to); ?>
                 </div>
-                <div class="wFormRow">
-                    <label for="phove2">Введите номер телефона</label>
-                    <input type="tel" required name="phove2" data-rule-phoneua="true" id="phove2"
-                           class="wInput js-inputmask">
+                <div data-form="true" class="sale_form wForm wFormDef" data-ajax="discount">
+                    <div class="wFormRow">
+                        <label for="name">Введите имя</label>
+                        <input type="text" required
+                               name="name"
+                               data-name="name"
+                               data-rule-mminlength="2"
+                               data-rule-word="true"
+                               id="name2" class="wInput">
+                    </div>
+                    <div class="wFormRow">
+                        <label for="phone">Введите номер телефона</label>
+                        <input type="tel" required
+                               name="phone"
+                               data-name="phone"
+                               data-rule-phoneua="true"
+                               id="phone"
+                               class="wInput js-inputmask">
+                    </div>
+                    <div class="wFormRow">
+                        <button class="wSubmit wBtn"><span>Получить скидку</span></button>
+                    </div>
+                    <div class="wFormRow">
+                        <div class="real_price"><span><?php echo Config::get('discount.price'); ?></span> грн</div>
+                        <div class="old_price"><span><?php echo Config::get('static.price'); ?></span> грн</div>
+                    </div>
                 </div>
-                <div class="wFormRow">
-                    <button class="wSubmit wBtn"><span>Получить скидку</span></button>
-                </div>
-                <div class="wFormRow">
-                    <div class="real_price"><span>1335</span> грн</div>
-                    <div class="old_price"><span>1500</span> грн</div>
-                </div>
+                <div class="timer_title">Осталось до конца</div>
+                <div data-finish="<?php echo date('Y-m-d', $to); ?>" class="js-timer timer"></div>
             </div>
-            <div class="timer_title">Осталось до конца</div>
-            <div data-finish="2016-11-11" class="js-timer timer"></div>
-        </div>
+        <?php endif; ?>
     </div>
     <div class="adv_bot">
         <div class="adv_bot_text">

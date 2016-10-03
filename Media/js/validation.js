@@ -1,10 +1,10 @@
 /*validation.js*/
 /*
-    validation.js v2.0
-    Wezom wTPL v4.0.0
-*/
+ validation.js v2.0
+ Wezom wTPL v4.0.0
+ */
 
-(function($){
+(function ($) {
 
     if (typeof wHTML === 'undefined') {
         window.wHTML = {};
@@ -14,7 +14,7 @@
     var MSGS = {};
     for (var key in ValidLang) {
         var val = ValidLang[key];
-        switch(key) {
+        switch (key) {
             case 'maxlength':
             case 'maxlength_checker':
             case 'maxlength_select':
@@ -41,7 +41,7 @@
 
     $.extend($.validator.messages, MSGS);
 
-    wHTML.wInputDate = function() {
+    wHTML.wInputDate = function () {
         if (!Modernizr.touch) {
             var dates = document.getElementsByClassName('wInputDate');
             for (var i = 0; i < dates.length; i++) {
@@ -53,14 +53,14 @@
         }
     };
 
-    wHTML.validation = function() {
+    wHTML.validation = function () {
         this.wInputDate();
-        $('.wForm').each(function() {
+        $('.wForm').each(function () {
             var formValid = $(this);
             var validator = $.data(this, "validator");
             if (typeof validator === 'undefined') {
                 formValid.validate({
-                    showErrors: function(errorMap, errorList) {
+                    showErrors: function (errorMap, errorList) {
                         if (errorList.length) {
                             var firstError = errorList.shift();
                             var newErrorList = [];
@@ -69,12 +69,12 @@
                         }
                         this.defaultShowErrors();
                     },
-                    invalidHandler: function(form, validator) {
+                    invalidHandler: function (form, validator) {
                         formValid
                             .addClass('no_valid')
                             .data('validator').focusInvalid();
                     },
-                    submitHandler: function(form) {
+                    submitHandler: function (form) {
                         var formJQ = $(form);
                         var preloader = false;
                         if (formJQ.hasClass('wFormPreloader')) {
@@ -89,29 +89,29 @@
                             if (preloader) {
                                 wPreloader.show(preloader);
                             }
-                            if( formJQ.data('ajax') ) {
+                            if (formJQ.data('ajax')) {
                                 var data = new FormData();
                                 var name;
                                 var val;
                                 var type;
-                                formJQ.find('input,textarea,select').each(function(){
+                                formJQ.find('input,textarea,select').each(function () {
                                     var thisJQ = $(this);
                                     name = thisJQ.data('name');
                                     val = this.value;
                                     type = this.type;
-                                    if((type != 'checkbox' && name) || (type == 'checkbox' && this.checked && name)) {
-                                        if(type == 'file') {
+                                    if ((type != 'checkbox' && name) || (type == 'checkbox' && this.checked && name)) {
+                                        if (type == 'file') {
                                             data.append(name, $(this)[0].files[0]);
-                                        } else if(type == 'radio' && $(this).prop('checked')) {
+                                        } else if (type == 'radio' && $(this).prop('checked')) {
                                             data.append(name, val);
-                                        } else if(type != 'radio') {
+                                        } else if (type != 'radio') {
                                             data.append(name, val);
                                         }
                                     }
                                 });
                                 var request = new XMLHttpRequest();
                                 request.open("POST", '/form/' + formJQ.data('ajax'));
-                                request.onreadystatechange = function() {
+                                request.onreadystatechange = function () {
                                     var status;
                                     var resp;
                                     if (request.readyState == 4) {
@@ -119,12 +119,12 @@
                                         resp = request.response;
                                         resp = jQuery.parseJSON(resp);
                                         if (status == 200) {
-                                            if( resp.success ) {
+                                            if (resp.success) {
                                                 if (!resp.noclear) {
                                                     formJQ.validReset();
                                                 }
                                                 if (resp.clear) {
-                                                    for(var i = 0; i < resp.clear.length; i++) {
+                                                    for (var i = 0; i < resp.clear.length; i++) {
                                                         $('input[name="' + resp.clear[i] + '"]').val('');
                                                         $('textarea[name="' + resp.clear[i] + '"]').val('');
                                                     }
@@ -132,16 +132,16 @@
                                                 if (resp.insert && resp.insert.selector && resp.insert.html) {
                                                     $(resp.insert.selector).html(resp.insert.html);
                                                 }
-                                                if ( resp.response ) {
+                                                if (resp.response) {
                                                     generate(resp.response, 'success', 3500);
                                                 }
                                             } else {
-                                                if ( resp.response ) {
+                                                if (resp.response) {
                                                     generate(resp.response, 'warning', 3500);
                                                 }
                                             }
-                                            if( resp.redirect ) {
-                                                if(window.location.href == resp.redirect) {
+                                            if (resp.redirect) {
+                                                if (window.location.href == resp.redirect) {
                                                     window.location.reload();
                                                 } else {
                                                     window.location.href = resp.redirect;
@@ -160,7 +160,7 @@
                             } else {
                                 console.warn('HTML => Форма отправлена');
                                 if (preloader) {
-                                    setTimeout(function() {
+                                    setTimeout(function () {
                                         formJQ.validReset();
                                         wPreloader.hide(preloader);
                                     }, 1000);
@@ -169,17 +169,17 @@
                         }
                     }
                 });
-                formValid.on('change', '.wFile', function(event) {
+                formValid.on('change', '.wFile', function (event) {
                     formValid.wFileVal(this);
                 });
 
                 /* Без тега FORM */
-                formValid.on('click', '.wSubmit', function(event) {
+                formValid.on('click', '.wSubmit', function (event) {
                     formValid.submit();
                 });
 
                 /* Сброс Без тега FORM */
-                formValid.on('click', '.wReset', function(event) {
+                formValid.on('click', '.wReset', function (event) {
                     if (formValid.is('DIV')) {
                         formValid.validReset();
                         wHTML.wInputDate();

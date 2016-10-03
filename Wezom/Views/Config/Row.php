@@ -4,6 +4,7 @@
         'rows' => 5,
         'value' => $obj->zna,
     ); ?>
+
     <?php if($obj->valid): ?>
         <?php $attributes['class'] = 'valid'; ?>
     <?php endif; ?>
@@ -13,6 +14,10 @@
         <?php echo \Forms\Builder::textarea($attributes, $obj->name); ?>
     <?php elseif($obj->type == 'tiny'): ?>
         <?php echo \Forms\Builder::tiny($attributes, $obj->name); ?>
+    <?php elseif($obj->type == 'date'): ?>
+        <?php $attributes['class'][] = 'myPicker'; ?>
+        <?php // var_dump($attributes); die;?>
+        <?php echo \Forms\Builder::input($attributes, $obj->name); ?>
     <?php elseif($obj->type == 'select'): ?>
         <?php $values = json_decode($obj->values, true); ?>
         <?php echo \Forms\Builder::select(\Core\Support::selectData($values, 'value', 'key'), $obj->zna, $attributes, $obj->name); ?>

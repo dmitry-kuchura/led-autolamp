@@ -8,6 +8,7 @@ use Core\User;
 use Core\System;
 use Core\Log;
 use Core\Email;
+use Core\Config;
 
 class Form extends \Modules\Ajax
 {
@@ -113,6 +114,57 @@ class Form extends \Modules\Ajax
         }
         */
         $this->success('Вы успешно оформили заказ! Менеджер свяжется с Вами в ближайшее время!');
+    }
+
+    public function discountAction()
+    {
+        $name = Arr::get($this->post, 'name');
+        $phone = Arr::get($this->post, 'phone');
+        $percent = Config::get('discount.percent');
+        $deliver = Config::get('discount.price');
+        if (!$name) {
+            $this->error('Имя введено неверно!');
+        }
+        if (!$phone) {
+            $this->error('Номер телефона введен неверно!');
+        }
+
+        $ip = System::getRealIP();
+        $check = DB::select(array(DB::expr('orders_simple.id'), 'count'))
+            ->from('orders_simple')
+            ->where('ip', '=', $ip)
+            ->where('created_at', '>', time() - 60)
+            ->as_object()->execute()->current();
+        if (is_object($check) AND $check->count) {
+            $this->error('Пожалуйста, повторите попытку через минуту!');
+        }
+
+        // Save data
+        $keys = ['name', 'phone', 'deliver', 'percent', 'ip', 'created_at'];
+        $values = [$name, $phone, $deliver, $percent, $ip, time()];
+        $lastID = DB::insert('orders_simple', $keys)->values($values)->execute();
+        $lastID = Arr::get($lastID, 0);
+
+        // Save log
+        $qName = 'Новый заказ скидки';
+        $url = '/wezom/orders/edit/' . $lastID;
+        Log::add($qName, $url, 2);
+
+        /*
+        // Send message to admin if need
+        $mail = DB::select()->from('mail_templates')->where('id', '=', 8)->where('status', '=', 1)->as_object()->execute()->current();
+        if ($mail) {
+            $from = array('{{site}}', '{{ip}}', '{{date}}', '{{phone}}', '{{link}}', '{{admin_link}}', '{{item_name}}');
+            $to = array(
+                Arr::get($_SERVER, 'HTTP_HOST'), $ip, date('d.m.Y H:i'),
+                $phone, $link, $link_admin, $item->name,
+            );
+            $subject = str_replace($from, $to, $mail->subject);
+            $text = str_replace($from, $to, $mail->text);
+            Email::send($subject, $text);
+        }
+        */
+        $this->success('Вы успешно оформили заказ скидки! Менеджер свяжется с Вами в ближайшее время!');
     }
 
 }

@@ -175,6 +175,9 @@
                                id="phone"
                                class="wInput js-inputmask">
                     </div>
+                    <?php if (array_key_exists('token', $_SESSION)): ?>
+                        <input type="hidden" data-name="token" value="<?php echo $_SESSION['token']; ?>"/>
+                    <?php endif; ?>
                     <div class="wFormRow">
                         <button class="wSubmit wBtn"><span>Получить скидку</span></button>
                     </div>

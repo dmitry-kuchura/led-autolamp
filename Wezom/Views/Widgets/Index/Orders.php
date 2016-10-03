@@ -45,7 +45,7 @@
                         <tr>
                             <th>№</th>
                             <th>Телефон</th>
-                            <th>Сумма</th>
+                            <th>Имя</th>
                             <th>Дата</th>
                             <th>Статус</th>
                             <th class="align-center hidden-xs">Перейти</th>
@@ -56,23 +56,19 @@
                             <tr>
                                 <td><a href="/wezom/orders/edit/<?php echo $obj->id; ?>">#<?php echo $obj->id; ?></a></td>
                                 <td><a href="tel:<?php echo preg_replace('/[^0-9]/', '', $obj->phone); ?>"><?php echo $obj->phone; ?></a></td>
-                                <td><b><?php echo (int) $obj->amount; ?></b> грн</td>
+                                <td><b><?php echo $obj->name; ?></b></td>
                                 <td><?php echo date( 'd.m.Y H:i', $obj->created_at ); ?></td>
                                 <td>
-                                    <?php if( $obj->status == 3 ): ?>
-                                        <?php $class = 'danger'; ?>
-                                    <?php endif; ?>
-                                    <?php if( $obj->status == 2 ): ?>
-                                        <?php $class = 'info'; ?>
-                                    <?php endif; ?>
                                     <?php if( $obj->status == 1 ): ?>
                                         <?php $class = 'success'; ?>
+                                        <?php $text = 'Просмотренный'; ?>
                                     <?php endif; ?>
                                     <?php if( $obj->status == 0 ): ?>
                                         <?php $class = 'default'; ?>
+                                        <?php $text = 'Новый'; ?>
                                     <?php endif; ?>
-                                    <span title="<?php echo $statuses[$obj->status]; ?>" class="label label-<?php echo $class; ?> orderLabelStatus bs-tooltip">
-                                        <span class="hidden-ss"><?php echo $statuses[$obj->status]; ?></span>
+                                    <span title="<?php echo $text; ?>" class="label label-<?php echo $class; ?> orderLabelStatus bs-tooltip">
+                                        <span class="hidden-ss"><?php echo $text; ?></span>
                                     </span>
                                 </td>
                                 <td class="align-center hidden-xs">

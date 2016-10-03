@@ -31,13 +31,9 @@
                 <label for="select1">Выберете цоколь</label>
                 <select type="text" required name="cap" data-name="cap" id="cap" class="wSelect js-select2">
                     <option value=""></option>
-                    <option value="1">Н1</option>
-                    <option value="2">Н3</option>
-                    <option value="3">Н4</option>
-                    <option value="4">Н7</option>
-                    <option value="5">Н8/Н11</option>
-                    <option value="6">9005 (HB3)</option>
-                    <option value="7">9006 (HB4)</option>
+                    <?php foreach ($result as $item): ?>
+                        <option value="<?php echo $item->id; ?>"><?php echo $item->name; ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
             <div class="wFormRow">
@@ -51,8 +47,8 @@
                     <div class="spiner js-plus plus"></div>
                 </div>
             </div>
-            <?php if(array_key_exists('token', $_SESSION)): ?>
-                <input type="hidden" data-name="token" value="<?php echo $_SESSION['token']; ?>" />
+            <?php if (array_key_exists('token', $_SESSION)): ?>
+                <input type="hidden" data-name="token" value="<?php echo $_SESSION['token']; ?>"/>
             <?php endif; ?>
             <div class="wFormRow">
                 <button class="wSubmit wBtn"><span>оформить заказ</span></button>

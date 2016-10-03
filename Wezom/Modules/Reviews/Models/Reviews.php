@@ -6,6 +6,7 @@
     class Reviews extends \Core\Common {
 
         public static $table = 'reviews';
+        public static $image = 'reviews';
         public static $filters = array(
             'name' => array(
                 'table' => NULL,
@@ -27,16 +28,6 @@
                 array(
                     'error' => 'Отзыв не может быть пустым!',
                     'key' => 'not_empty',
-                ),
-            ),
-            'date' => array(
-                array(
-                    'error' => 'Дата не может быть пустой!',
-                    'key' => 'not_empty',
-                ),
-                array(
-                    'error' => 'Укажите правильную дату!',
-                    'key' => 'date',
                 ),
             ),
         );

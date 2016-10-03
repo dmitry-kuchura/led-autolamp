@@ -51,14 +51,15 @@
     }(window);
 </script>
 <!-- Внешние css файлы-->
-<link rel="stylesheet" property="stylesheet" href="<?php echo HTML::media('css/components.css'); ?>">
-<link rel="stylesheet" property="stylesheet" href="<?php echo HTML::media('css/style.css'); ?>">
-<link rel="stylesheet" property="stylesheet" href="<?php echo HTML::media('css/responsive.css'); ?>">
+<?php $css = Minify\Core::factory('css')->minify($styles); ?>
+<?php foreach ($css as $file_style): ?>
+    <?php echo HTML::style($file_style) . "\n"; ?>
+<?php endforeach; ?>
 <!-- Внешние js файлы-->
-<script src="<?php echo HTML::media('js/libs.js'); ?>"></script>
-<script src="<?php echo HTML::media('js/components.js'); ?>"></script>
-<script src="<?php echo HTML::media('js/inits.js'); ?>"></script>
-<script src="<?php echo HTML::media('js/validation.js'); ?>"></script>
+<?php $js = Minify\Core::factory('js')->minify($scripts); ?>
+<?php foreach ($js as $file_script): ?>
+    <?php echo HTML::script($file_script) . "\n"; ?>
+<?php endforeach; ?>
 <!-- Favicons -->
 <link rel="apple-touch-icon" sizes="57x57" href="<?php echo HTML::media('favicons/apple-touch-icon-57x57.png'); ?>">
 <link rel="apple-touch-icon" sizes="60x60" href="<?php echo HTML::media('favicons/apple-touch-icon-60x60.png'); ?>">
@@ -81,20 +82,3 @@
 <meta name="msapplication-TileImage" content="<?php echo HTML::media('favicons/mstile-144x144.png'); ?>">
 <meta name="msapplication-config" content="<?php echo HTML::media('browserconfig.xml'); ?>">
 <meta name="theme-color" content="#ffffff">
-
-
-<?php /* $css = Minify\Core::factory('css')->minify($styles); ?>
-<?php foreach ($css as $file_style): ?>
-    <?php echo HTML::style($file_style) . "\n"; ?>
-<?php endforeach; ?>
-
-<!--[if lt IE 9]>
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js/media"></script><![endif]-->
-<?php $js = Minify\Core::factory('js')->minify($scripts); ?>
-<?php foreach ($js as $file_script): ?>
-    <?php echo HTML::script($file_script) . "\n"; ?>
-<?php endforeach; ?>
-
-<?php foreach ($scripts_no_minify as $file_script): ?>
-    <?php echo HTML::script($file_script) . "\n"; ?>
-<?php endforeach; */ ?>

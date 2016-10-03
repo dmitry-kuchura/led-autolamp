@@ -3,16 +3,13 @@ namespace Core;
 
 use Core\QB\DB;
 
-/**
- *  Class that helps with widgets on the site
- */
 class Widgets
 {
 
     static $_instance; // Constant that consists self class
 
-    public $_data = array(); // Array of called widgets
-    public $_tree = array(); // Only for catalog menus on footer and header. Minus one query
+    public $_data = []; // Array of called widgets
+    public $_tree = []; // Only for catalog menus on footer and header. Minus one query
 
     static function factory()
     {
@@ -22,7 +19,7 @@ class Widgets
         return self::$_instance;
     }
 
-    public static function get($name, $array = array(), $save = true, $cache = false)
+    public static function get($name, $array = [], $save = true, $cache = false)
     {
         $arr = explode('_', $name);
         $viewpath = implode('/', $arr);
@@ -88,15 +85,21 @@ class Widgets
         return NULL;
     }
 
-//    public function HiddenData()
-//    {
-//    }
-
-    public function Footer()
+    public function Head()
     {
-        $contentMenu = Common::factory('sitemenu')->getRows(1, 'sort');
-        $array['contentMenu'] = $contentMenu;
-        return $array;
+        $styles = [
+            HTML::media('css/components.css'),
+            HTML::media('css/style.css'),
+            HTML::media('css/responsive.css'),
+        ];
+        $scripts = [
+            HTML::media('js/libs.js'),
+            HTML::media('js/components.js'),
+            HTML::media('js/inits.js'),
+            HTML::media('js/validation.js'),
+        ];
+
+        return compact('scripts', 'styles');
     }
 
     public function Header()
@@ -106,29 +109,25 @@ class Widgets
         return $array;
     }
 
-    public function Head()
+    public function Footer()
     {
-        $styles = array(
-            HTML::media('css/plugin.css'),
-            HTML::media('css/style.css'),
-//                HTML::media('css/programmer/magnific.css'),
-            HTML::media('css/programmer/fpopup.css'),
-            HTML::media('css/programmer/my.css'),
-            HTML::media('css/responsive.css'),
-        );
-        $scripts = array(
-            HTML::media('js/modernizr.js'),
-            HTML::media('js/jquery-1.11.0.min.js'),
-            HTML::media('js/basket.js'),
-            HTML::media('js/plugins.js'),
-            HTML::media('js/init.js'),
-            HTML::media('js/programmer/my.js'),
-        );
-        $scripts_no_minify = array(
-            HTML::media('js/programmer/ulogin.js'),
-        );
-        return array('scripts' => $scripts, 'styles' => $styles, 'scripts_no_minify' => $scripts_no_minify);
+        $contentMenu = Common::factory('sitemenu')->getRows(1, 'sort');
+        $array['contentMenu'] = $contentMenu;
+        return $array;
     }
 
+    public function Main_Reviews()
+    {
+        $result = DB::select()->from('reviews')->where('status', '=', 1)->find_all();
+
+        return compact('result');
+    }
+
+    public function Main_Top()
+    {
+        $result = DB::select()->from('cap')->where('status', '=', 1)->find_all();
+
+        return compact('result');
+    }
 
 }

@@ -68,9 +68,8 @@
                             <th class="checkbox-head">
                                 <label><input type="checkbox"></label>
                             </th>
-                            <th>IP</th>
+                            <th>Изображение</th>
                             <th>Имя</th>
-                            <th>Дата</th>
                             <th>Статус</th>
                             <th class="nav-column textcenter">&nbsp;</th>
                         </tr>
@@ -82,10 +81,15 @@
                                     <label><input type="checkbox"></label>
                                 </td>
                                 <td>
-                                    <?php if($obj->ip): ?>
-                                        <?php echo $obj->ip; ?>
+                                    <?php if($obj->image): ?>
+                                        <a href="/wezom/<?php echo Core\Route::controller(); ?>/edit/<?php echo $obj->id; ?>">
+                                            <img src="<?php echo Core\HTML::media('images/reviews/small/' . $obj->image); ?>" alt="" style="max-width: 50px;">
+                                        </a>
                                     <?php else: ?>
-                                        <span style="font-style: italic;">( Администратор )</span>
+                                        <a href="/wezom/<?php echo Core\Route::controller(); ?>/edit/<?php echo $obj->id; ?>">
+                                            <span style="font-style: italic;">-----</span>
+                                        </a>
+
                                     <?php endif; ?>
                                 </td>
                                 <td>
@@ -93,7 +97,6 @@
                                         <?php echo $obj->name; ?>
                                     </a>
                                 </td>
-                                <td><?php echo $obj->date ? date( 'd.m.Y', $obj->date ) : '----'; ?></td>
                                 <td width="45" valign="top" class="icon-column status-column">
                                     <?php echo Core\View::widget(array( 'status' => $obj->status, 'id' => $obj->id ), 'StatusList'); ?>
                                 </td>

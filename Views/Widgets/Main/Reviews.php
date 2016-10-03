@@ -4,51 +4,20 @@
         <div class="reviews_slider_block">
             <div class="reviews_slider">
                 <ul>
-                    <li>
-                        <div class="review_photo">
-
-                            <img src="<?php echo Core\HTML::media('pic/review.jpg'); ?>" alt="">
-                        </div>
-                        <div class="review_name">Александр Нестеров</div>
-                        <div class="review_text">Поставил вместо ксенона, т.к. от него глаза сильно уставали.
-                            Теперь могу на дальняке ехать хоть всю ночь, и не в одном глазу )). Еще порадовало,
-                            что нет скачка апряжения, когда врубаешь ближний. В целом очень хорошие лампы, я
-                            очень доволен, что поставил их
-                        </div>
-                    </li>
-                    <li>
-                        <div class="review_photo">
-                            <img src="<?php echo Core\HTML::media('pic/review.jpg'); ?>" alt="">
-                        </div>
-                        <div class="review_name">Александр Нестеров</div>
-                        <div class="review_text">Поставил вместо ксенона, т.к. от него глаза сильно уставали.
-                            Теперь могу на дальняке ехать хоть всю ночь, и не в одном глазу )). Еще порадовало,
-                            что нет скачка апряжения, когда врубаешь ближний. В целом очень хорошие лампы, я
-                            очень доволен, что поставил их
-                        </div>
-                    </li>
-                    <li>
-                        <div class="review_photo">
-                            <img src="<?php echo Core\HTML::media('pic/review.jpg'); ?>" alt="">
-                        </div>
-                        <div class="review_name">Александр Нестеров</div>
-                        <div class="review_text">Поставил вместо ксенона, т.к. от него глаза сильно уставали.
-                            Теперь могу на дальняке ехать хоть всю ночь, и не в одном глазу )). Еще порадовало,
-                            что нет скачка апряжения, когда врубаешь ближний. В целом очень хорошие лампы, я
-                            очень доволен, что поставил их
-                        </div>
-                    </li>
-                    <li>
-                        <div class="review_photo">
-                            <img src="<?php echo Core\HTML::media('pic/review.jpg'); ?>" alt="">
-                        </div>
-                        <div class="review_name">Александр Нестеров</div>
-                        <div class="review_text">Поставил вместо ксенона, т.к. от него глаза сильно уставали.
-                            Теперь могу на дальняке ехать хоть всю ночь, и не в одном глазу )). Еще порадовало,
-                            что нет скачка апряжения, когда врубаешь ближний. В целом очень хорошие лампы, я
-                            очень доволен, что поставил их
-                        </div>
-                    </li>
+                    <?php foreach ($result as $obj): ?>
+                        <li>
+                            <div class="review_photo">
+                                <?php if (is_file(HOST . Core\HTML::media('images/reviews/original/' . $obj->image))) {
+                                    $image = Core\HTML::media('images/reviews/original/' . $obj->image);
+                                } else {
+                                    $image = Core\HTML::media('pic/no-avatar.png');
+                                } ?>
+                                <img src="<?php echo $image; ?>" alt="">
+                            </div>
+                            <div class="review_name"><?php echo $obj->name; ?></div>
+                            <div class="review_text"><?php echo $obj->text; ?></div>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
                 <div class="pagg"></div>
             </div>

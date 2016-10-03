@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="ru-ru" dir="ltr">
-<!-- (c) студия Wezom | www.wezom.com.ua -->
-<head>  
-    <?php echo Core\Widgets::get('Head', $_seo); ?>
-    <?php foreach ( $_seo['scripts']['head'] as $script ): ?>
-        <?php echo $script; ?>
-    <?php endforeach ?>
-    <?php echo $GLOBAL_MESSAGE; ?>
+<html lang="ru-RU" dir="ltr" class="no-js">
+<head>
+    <?php echo Core\Widgets::get('Error_Head', $_seo); ?>
 </head>
-<body>
-    <?php foreach ( $_seo['scripts']['body'] as $script ): ?>
-        <?php echo $script; ?>
-    <?php endforeach ?>
-    <div class="wWrapper">
-        <div class="page_404">
-            <p>404</p>
-            <p>Страница не найдена. Начните с <a href="<?php echo Core\HTML::link(); ?>">Главной страницы</a>.</p>
-            <a href="<?php echo Core\HTML::link('Sitemap'); ?>">Карта сайта</a>
+<body class="errorPage">
+<div class="errorWrapper">
+    <div class="errorHolder">
+        <div class="errorContent">
+            <div class="errorHeader">404</div>
+            <div class="wTxt">
+                <h3>Страница не найдена</h3>
+                <p>
+                    <em>К сожалению, страница, которую Вы запросили, не была найдена.</em>
+                    <br>
+                    Вы можете перейти на <a href="<?php echo Core\HTML::link(); ?>">главную страницу</a>
+                </p>
+            </div>
         </div>
     </div>
+</div>
+    <?php echo Core\Widgets::get('Error_Footer'); ?>
 </body>
 </html>

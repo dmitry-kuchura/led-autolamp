@@ -8,7 +8,7 @@
             <img src="<?php echo Core\HTML::media('pic/detals.png'); ?>" alt="">
         </div>
         <div data-form="true" class="top_form wForm wFormDef" data-ajax="order">
-            <div class="form_title"><?php echo Config::get('static.price'); ?> грн на все</div>
+            <div class="form_title">Всего <?php echo Config::get('static.price'); ?> грн</div>
             <div class="wFormRow">
                 <label for="name">Введите имя</label>
                 <input type="text" required

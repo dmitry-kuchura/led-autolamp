@@ -4,7 +4,6 @@
     use Core\Arr;
     use Core\Common;
     use Core\Message;
-    use Modules\Cart\Models\Cart;
     use Core\HTML;
 
     class General extends \Modules\Ajax {

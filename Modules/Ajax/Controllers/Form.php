@@ -8,7 +8,6 @@
     use Core\Config AS conf;
     use Core\View;
     use Core\System;
-    use Modules\Cart\Models\Cart;
     use Core\Log;
     use Core\Email;
     use Core\Message;

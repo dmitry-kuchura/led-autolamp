@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ru-RU" dir="ltr" class="no-js">
+	<head>
+		<!-- (c) студия Wezom | www.wezom.com.ua-->
+		<!-- wTPL | v#{locals.version}-->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Главная страница | Верстка | (c) студия Wezom | www.wezom.com.ua</title>
+		<meta name="description" lang="ru-ru" content="">
+		<meta name="keywords" lang="ru-ru" content="студия wezom, разработка сайтов">
+		<meta name="keywords" lang="en-us" content="studio wezom, web development">
+		<meta name="author" lang="ru-ru" content="">
+		<!-- Open Graph -->
+		<meta property="og:title" content="Заголовок страницы">
+		<meta property="og:type" content="website">
+		<meta property="og:site_name" content="site.com">
+		<meta property="og:url" content="http://site.com/current-page">
+		<meta property="og:description" content="краткий текст (новости, товара и т.д)">
+		<!-- Touch -->
+		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="address=no">
+		<!--Responsive-->
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="target-densitydpi=device-dpi">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<!-- saved from url=(0014)about:internet -->
+		<!--[if IE]><meta http-equiv="imagetoolbar" content="no"><![endif]-->
+		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<!-- localStorage test -->
+		<script>!function(t){function r(){var t=navigator.userAgent,r=!window.addEventListener||t.match(/(Android (2|3|4.0|4.1|4.2|4.3))|(Opera (Mini|Mobi))/)&&!t.match(/Chrome/);if(r)return!1;var e="test";try{return localStorage.setItem(e,e),localStorage.removeItem(e),!0}catch(o){return!1}}t.localSupport=r(),t.localWrite=function(t,r){try{localStorage.setItem(t,r)}catch(e){if(e==QUOTA_EXCEEDED_ERR)return!1}}}(window);
+		</script>
+		<!-- Внешние css файлы-->
+		<link rel="stylesheet" property="stylesheet" href="css/components.css">
+		<link rel="stylesheet" property="stylesheet" href="css/style.css">
+		<link rel="stylesheet" property="stylesheet" href="css/responsive.css">
+		<!-- Внешние js файлы-->
+		<script src="js/libs.js"></script>
+		<script src="js/components.js"></script>
+		<script src="js/inits.js"></script>
+		<script src="js/validation.js"></script>
+		<!-- Favicons -->
+		<link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon-180x180.png">
+		<link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="favicons/android-chrome-192x192.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="manifest.json">
+		<link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+		<link rel="shortcut icon" href="favicon.ico">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
+		<meta name="msapplication-config" content="browserconfig.xml">
+		<meta name="theme-color" content="#ffffff">
+	</head>
+	<body class="indexPage">
+		<div class="wWrapper">
+			<header class="wHeader">
+				<div class="wSize">
+					<div class="logo_block w_fll"><span data-anchor="top" class="logo js-anchor"><img src="pic/logo.png" alt=""></span></div>
+					<div class="phone_graf_top w_flr"><a href="tel:380990902856?call" class="phone_top">
+							<svg>
+								<use xlink:href="#icon_phone"/>
+							</svg><span>+380 99 090-28-56</span></a><span class="graf_top">
+							<svg>
+								<use xlink:href="#icon_clock"/>
+							</svg>
+							<div class="graf_info"><span>ПН-ПТ 09:00-18:00</span><span>СБ-ВС 10:00-16:00</span></div></span></div>
+					<div class="menu w_ovh"><span data-anchor="advantages" class="js-anchor">Преимущества</span><span data-anchor="compare" class="js-anchor">Сравнение</span><span data-anchor="reviews" class="js-anchor">Отзывы</span><span data-anchor="buy" class="js-anchor">Покупайте у нас</span></div>
+				</div>
+			</header>
+			<div class="wHeaderFix">
+				<div class="menu w_ovh"><span data-anchor="advantages" class="js-anchor">Преимущества</span><span data-anchor="compare" class="js-anchor">Сравнение</span><span data-anchor="reviews" class="js-anchor">Отзывы</span><span data-anchor="buy" class="js-anchor">Покупайте у нас</span></div>
+			</div>
+			<!-- .wHeader -->
+			<div class="wContainer">
+				<div class="top_block js-top">
+					<div class="wSize">
+						<div class="site_name"><span>Лампы головного света <span>NAPO model С</span></span> надежный мощный свет<br>вашего автомобиля</div>
+						<div class="detals"><img src="pic/detals.png" alt=""></div>
+						<div data-form="true" class="top_form wForm wFormDef">
+							<div class="form_title">1500 грн на все</div>
+							<div class="wFormRow">
+								<label for="name1">Введите имя</label>
+								<input type="text" required name="name1" data-rule-mminlength="2" data-rule-word="true" id="name1" class="wInput">
+							</div>
+							<div class="wFormRow">
+								<label for="phove1">Введите номер телефона</label>
+								<input type="tel" required name="phove1" data-rule-phoneua="true" id="phove1" class="wInput js-inputmask">
+							</div>
+							<div class="wFormRow">
+								<label for="select1">Выберете цоколь</label>
+								<select type="text" required name="select1" id="select1" class="wSelect js-select2">
+									<option value=""></option>
+									<option value="1">Н1</option>
+									<option value="2">Н3</option>
+									<option value="3">Н4</option>
+									<option value="4">Н7</option>
+									<option value="5">Н8/Н11</option>
+									<option value="6">9005 (HB3)</option>
+									<option value="7">9006 (HB4)</option>
+								</select>
+							</div>
+							<div class="wFormRow">
+								<label for="count1">Количество</label>
+								<div class="counter_block">
+									<div class="spiner js-minus minus"></div>
+									<div class="counter js-couter">
+										<input type="tel" data-count="1" value="1 шт" name="count1" id="count1" required class="wInput">
+									</div>
+									<div class="spiner js-plus plus"></div>
+								</div>
+							</div>
+							<div class="wFormRow">
+								<button class="wSubmit wBtn"><span>оформить заказ</span></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="advantages js-advantages">
+					<div class="wSize">
+						<div class="pageTitle">преимущества лампы <br>NAPO model С</div>
+						<div class="adv_khars">
+							<div class="adv_khar w_right w_clearfix">
+								<div class="adv_khar_img"><img src="pic/b2_img1.png" alt=""></div>
+								<div class="adv_opus w_ovh">
+									<div class="avd_opus_title">Отличные<br> светотехнические<br> характеристики</div>
+									<div class="avd_opus_list">
+										<div class="avd_opus_item w_clearfix">
+											<div class="svg_opus w_fll">
+												<svg>
+													<use xlink:href="#icon_light"/>
+												</svg>
+											</div><span>Световой поток – 4000 Lm</span>
+										</div>
+										<div class="avd_opus_item w_clearfix">
+											<div class="svg_opus w_fll">
+												<svg>
+													<use xlink:href="#icon_temp"/>
+												</svg>
+											</div><span>Температура свечения – 6000К</span>
+										</div>
+										<div class="avd_opus_item w_clearfix">
+											<div class="svg_opus w_fll">
+												<svg>
+													<use xlink:href="#icon_gran"/>
+												</svg>
+											</div><span>Четкая свето-теневая граница</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="adv_khar w_left w_clearfix">
+								<div class="adv_khar_img"><img src="pic/b2_img2.png" alt=""></div>
+								<div class="adv_opus w_ovh">
+									<div class="avd_opus_title">Усовершенствованная<br> система<br> теплоотведения</div>
+									<div class="avd_opus_list">
+										<div class="avd_opus_item w_clearfix">
+											<div class="svg_opus w_fll">
+												<svg>
+													<use xlink:href="#icon_pasive_cold"/>
+												</svg>
+											</div><span>Пассивная система охлаждения</span>
+										</div>
+										<div class="avd_opus_item w_clearfix">
+											<div class="svg_opus w_fll">
+												<svg>
+													<use xlink:href="#icon_avia"/>
+												</svg>
+											</div><span>Радиатор изготовлен из авиационного алюминия</span>
+										</div>
+										<div class="avd_opus_item w_clearfix">
+											<div class="svg_opus w_fll">
+												<svg>
+													<use xlink:href="#icon_rifl"/>
+												</svg>
+											</div><span>Рифленая поверхность теплообменника увеличивает площадь рассеивания тепла и снижает нагрев лампы</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="adv_khar w_right w_clearfix">
+								<div class="adv_khar_img"><img src="pic/b2_img3.png" alt=""></div>
+								<div class="adv_opus w_ovh">
+									<div class="avd_opus_title">Комплектация<br> набора</div>
+									<div class="avd_opus_list">
+										<div class="avd_opus_item w_clearfix">
+											<div class="svg_opus no-svg"></div><span>2 полностью готовые к установке лампы</span>
+										</div>
+										<div class="avd_opus_item w_clearfix">
+											<div class="svg_opus no-svg"></div><span>Инструкция по установке и эксплуатации лампы на украинском языке</span>
+										</div>
+										<div class="avd_opus_item w_clearfix">
+											<div class="svg_opus no-svg"></div><span>Возможность выбора одного из цоколей - Н1, Н3, Н4, Н7, H8/H11, 9005 (HB3), 9006 (HB4)</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="adv_unic">
+							<div class="pageTitle w_small">Уникальные свойства</div>
+							<div class="unic_list">
+								<div class="unic_item w_clearfix">
+									<div class="svg_unic w_fll">
+										<svg>
+											<use xlink:href="#icon_diod"/>
+										</svg>
+									</div><span class="w_ovh">Светодиоды нового поколения CSP Seoul Y19 (Южная Корея)</span>
+								</div>
+								<div class="unic_item w_clearfix">
+									<div class="svg_unic w_fll">
+										<svg>
+											<use xlink:href="#icon_gran"/>
+										</svg>
+									</div><span class="w_ovh">Четкая свето-теневая граница, не ослепляет встречные машины</span>
+								</div>
+								<div class="unic_item w_clearfix">
+									<div class="svg_unic w_fll">
+										<svg>
+											<use xlink:href="#icon_line_light"/>
+										</svg>
+									</div><span class="w_ovh">Мощный ровный световой пучек</span>
+								</div>
+								<div class="unic_item w_clearfix">
+									<div class="svg_unic w_fll">
+										<svg>
+											<use xlink:href="#icon_water"/>
+										</svg>
+									</div><span class="w_ovh">Степень защиты IP65, лампа выдержит любые погодные условия</span>
+								</div>
+								<div class="unic_item w_clearfix">
+									<div class="svg_unic w_fll">
+										<svg>
+											<use xlink:href="#icon_size"/>
+										</svg>
+									</div><span class="w_ovh">Светодиоды имеют те же размеры и расположены также, как и нити накаливания галогенной лампы, что обеспечивает правильную фокусировку в рефлекторе фары</span>
+								</div>
+								<div class="unic_item w_clearfix">
+									<div class="svg_unic w_fll">
+										<svg>
+											<use xlink:href="#icon_wat"/>
+										</svg>
+									</div><span class="w_ovh">Напряжение от 9 до 32 Вт (как для легковых так и для грузовых авто )</span>
+								</div>
+							</div>
+						</div>
+						<div class="sale_block">
+							<div class="sale_title"><span>скидка 11%</span> с 29.06 до 11.08</div>
+							<div data-form="true" class="sale_form wForm wFormDef">
+								<div class="wFormRow">
+									<label for="name2">Введите имя</label>
+									<input type="text" required name="name2" data-rule-mminlength="2" data-rule-word="true" id="name2" class="wInput">
+								</div>
+								<div class="wFormRow">
+									<label for="phove2">Введите номер телефона</label>
+									<input type="tel" required name="phove2" data-rule-phoneua="true" id="phove2" class="wInput js-inputmask">
+								</div>
+								<div class="wFormRow">
+									<button class="wSubmit wBtn"><span>Получить скидку</span></button>
+								</div>
+								<div class="wFormRow">
+									<div class="real_price"><span>1335</span> грн</div>
+									<div class="old_price"><span>1500</span> грн</div>
+								</div>
+							</div>
+							<div class="timer_title">Осталось до конца</div>
+							<div data-finish="2016-11-11" class="js-timer timer"></div>
+						</div>
+					</div>
+					<div class="adv_bot">
+						<div class="adv_bot_text">
+							<div class="adv_bot_items">
+								<div class="adv_bot_item">
+									<div class="adv_bot_item_title">Подходят под<br>все марки авто</div>
+									<div class="adv_bot_item_text">Теперь владельцы запрещенного ксенона и скромных галогенок вам лишь позавидуют! Ставьте инновационные лампы на любой легковой или грузовой автомобиль и получайте вдвое больше комфорта от ночных поездок!</div>
+								</div>
+								<div class="adv_bot_item">
+									<div class="adv_bot_item_title">Для установки<br>не требуется СТО</div>
+									<div class="adv_bot_item_text">Чтобы установить лампы, потребуется не больше 10 минут. Просто подключаете коннектор в штатный автомобильный разъем, и лампы повышенной яркости готовы к использованию</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="compare js-compare">
+					<div class="wSize">
+						<div class="pageTitle">Лучше чем галогенки<br>и ксенон</div>
+						<div class="compare_list">
+							<div class="compare_item">
+								<div class="compare_img"><img src="pic/list1.jpg" alt=""></div>
+								<div class="compare_info">
+									<div class="compare_name">галогенка</div>
+									<div class="compare_text"> <span>Светят желтым светом, который искажает восприятие цвета. Быстро нагреваются, а в дождь или снег не обеспечивают должной видимости.</span></div>
+									<div class="compare_opus">Срок службы <span>500 - 1000 часов</span></div>
+									<div class="compare_opus">Энергопотребление <span>55 Вт</span></div>
+								</div>
+							</div>
+							<div class="compare_item">
+								<div class="compare_img"><img src="pic/list2.jpg" alt=""></div>
+								<div class="compare_info">
+									<div class="compare_name">ксенон</div>
+									<div class="compare_text"><span>Долго разгораются. От холодного яркого света болят глаза. В туман и дождь плохая видимость. Концентрируют 80% света в одной точке. Устанавливается только на СТО и при наличии разрешения.</span></div>
+									<div class="compare_opus">Срок службы <span>2500 - 4000 часов</span></div>
+									<div class="compare_opus">Энергопотребление <span>От 35 Вт</span></div>
+								</div>
+							</div>
+							<div class="compare_item cur">
+								<div class="compare_img"><img src="pic/list3.jpg" alt=""></div>
+								<div class="compare_info">
+									<div class="compare_name">led-лампы napo model c</div>
+									<div class="compare_text"> <span>Равномерно освещают дорогу. Обеспечивают отличную видимость в туман или в дождь. Свет не мерцает и не концентрируется в одной точке. Не слепит встречные автомобили</span></div>
+									<div class="compare_opus">Срок службы <span>30000 часов</span></div>
+									<div class="compare_opus">Энергопотребление <span>25 Вт</span></div>
+								</div>
+							</div>
+						</div>
+						<div class="order_block">
+							<div class="order_title">Закажите прямо сейчас</div>
+							<div data-form="true" class="order_form wForm wFormDef">
+								<div class="wFormRow">
+									<label for="name3">Введите имя</label>
+									<input type="text" required name="name3" data-rule-mminlength="2" data-rule-word="true" id="name3" class="wInput">
+								</div>
+								<div class="wFormRow">
+									<label for="phove3">Введите номер телефона</label>
+									<input type="tel" required name="phove3" data-rule-phoneua="true" id="phove3" class="wInput js-inputmask">
+								</div>
+								<div class="wFormRow">
+									<label for="select3">Выберете цоколь</label>
+									<select type="text" required name="select3" id="select3" class="wSelect js-select2">
+										<option value=""></option>
+										<option value="1">Н1</option>
+										<option value="2">Н3</option>
+										<option value="3">Н4</option>
+										<option value="4">Н7</option>
+										<option value="5">Н8/Н11</option>
+										<option value="6">9005 (HB3)</option>
+										<option value="7">9006 (HB4)</option>
+									</select>
+								</div>
+								<div class="wFormRow">
+									<label for="count3">Количество</label>
+									<div class="counter_block">
+										<div class="spiner js-minus minus"></div>
+										<div class="counter js-couter">
+											<input type="tel" data-count="1" value="1 шт" name="count3" id="count3" required class="wInput">
+										</div>
+										<div class="spiner js-plus plus"></div>
+									</div>
+								</div>
+								<div class="wFormRow">
+									<button class="wSubmit wBtn"><span>оформить заказ</span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="reviews js-reviews">
+					<div class="wSize">
+						<div class="reviews_title">Что говорят<br>автовладельцы?</div>
+						<div class="reviews_slider_block">
+							<div class="reviews_slider">
+								<ul>
+									<li>
+										<div class="review_photo"><img src="pic/review.jpg" alt=""></div>
+										<div class="review_name">Александр Нестеров</div>
+										<div class="review_text">Поставил вместо ксенона, т.к. от него глаза сильно уставали. Теперь могу на дальняке ехать хоть всю ночь, и не в одном глазу )). Еще порадовало, что нет скачка апряжения, когда врубаешь ближний. В целом очень хорошие лампы, я очень доволен, что поставил их</div>
+									</li>
+									<li>
+										<div class="review_photo"><img src="pic/review.jpg" alt=""></div>
+										<div class="review_name">Александр Нестеров</div>
+										<div class="review_text">Поставил вместо ксенона, т.к. от него глаза сильно уставали. Теперь могу на дальняке ехать хоть всю ночь, и не в одном глазу )). Еще порадовало, что нет скачка апряжения, когда врубаешь ближний. В целом очень хорошие лампы, я очень доволен, что поставил их</div>
+									</li>
+									<li>
+										<div class="review_photo"><img src="pic/review.jpg" alt=""></div>
+										<div class="review_name">Александр Нестеров</div>
+										<div class="review_text">Поставил вместо ксенона, т.к. от него глаза сильно уставали. Теперь могу на дальняке ехать хоть всю ночь, и не в одном глазу )). Еще порадовало, что нет скачка апряжения, когда врубаешь ближний. В целом очень хорошие лампы, я очень доволен, что поставил их</div>
+									</li>
+									<li>
+										<div class="review_photo"><img src="pic/review.jpg" alt=""></div>
+										<div class="review_name">Александр Нестеров</div>
+										<div class="review_text">Поставил вместо ксенона, т.к. от него глаза сильно уставали. Теперь могу на дальняке ехать хоть всю ночь, и не в одном глазу )). Еще порадовало, что нет скачка апряжения, когда врубаешь ближний. В целом очень хорошие лампы, я очень доволен, что поставил их</div>
+									</li>
+								</ul>
+								<div class="pagg"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="buy js-buy">
+					<div class="wSize">
+						<div class="buy_title"><span>3</span> причины купить<br>LED-лампы у нас</div>
+						<div class="buy_list">
+							<div class="buy_item">
+								<div class="buy_svg icon_money">
+									<svg>
+										<use xlink:href="#icon_money"/>
+									</svg>
+								</div>
+								<div class="buy_name">Доступная цена</div>
+								<div class="buy_text">За счет прямых поставок от производителя</div>
+							</div>
+							<div class="buy_item">
+								<div class="buy_svg icon_dollar">
+									<svg>
+										<use xlink:href="#icon_dollar"/>
+									</svg>
+								</div>
+								<div class="buy_name">Возможность возврата</div>
+								<div class="buy_text">В течение 14 дней</div>
+							</div>
+							<div class="buy_item">
+								<div class="buy_svg icon_prosent">
+									<svg>
+										<use xlink:href="#icon_prosent"/>
+									</svg>
+								</div>
+								<div class="buy_name">Гарантия</div>
+								<div class="buy_text">12 месяцев</div>
+							</div>
+						</div>
+					</div>
+					<div class="buy2">
+						<div class="wSize">
+							<div class="buy_list2">
+								<div class="buy_item">
+									<div class="buy_svg icon_post">
+										<svg>
+											<use xlink:href="#icon_new_post"/>
+										</svg>
+									</div>
+									<div class="buy_name">Доставка<br>новой почтой</div>
+								</div>
+								<div class="buy_item">
+									<div class="buy_svg icon_box">
+										<svg>
+											<use xlink:href="#icon_box"/>
+										</svg>
+									</div>
+									<div class="buy_name">Оплата наложенным<br>платежом</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="buy_bot">
+						<div class="wSize">
+							<div class="buy_form w_flr">
+								<div class="buy_form_title">Подобрать цоколь<br>для автомобиля</div>
+								<div data-form="true" class="wForm wFormDef">
+									<div class="wFormRow">
+										<label for="name4">Введите имя</label>
+										<input type="text" required name="name4" data-rule-word="true" data-rule-mminlength="2" id="name4" class="wInput">
+									</div>
+									<div class="wFormRow">
+										<label for="mark4">Укажите марку</label>
+										<input type="text" required name="mark4" id="mark4" class="wInput">
+									</div>
+									<div class="wFormRow">
+										<label for="model4">Укажите модель</label>
+										<input type="text" required name="model4" id="model4" class="wInput">
+									</div>
+									<div class="wFormRow">
+										<label for="mail4">Введите E-mail</label>
+										<input type="email" required name="mail4" data-rule-email="true" id="mail4" class="wInput">
+									</div>
+									<div class="wFormRow">
+										<label for="type4">Укажите тип двигателя</label>
+										<input type="text" required name="type4" id="type4" class="wInput">
+									</div>
+									<div class="wFormRow">
+										<label for="year4">Укажите год выпуска</label>
+										<input type="tel" required name="year4" data-rule-minlength="4" data-rule-digits="true" id="year4" class="wInput">
+									</div>
+									<div class="wFormRow">
+										<button class="wSubmit wBtn"><span>Спросить менеджера</span></button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- .wConteiner -->
+			</div>
+		</div>
+		<footer class="wFooter">
+			<div class="wSize">
+				<div class="w_fll logo_f_block"><img src="pic/logo.png" alt=""><span>© Led Systems Ukraine Все права защищены</span></div>
+				<div class="w_flr wezom_block"><a href="http://wezom.com.ua" target="_blank" class="wezom">
+						<svg>
+							<use xlink:href="#icon_wezom"/>
+						</svg><span>Разработка сайта <span>Wezom Agency</span></span></a></div>
+			</div>
+		</footer>
+		<!-- .wFooter -->
+		<!-- WezomDefs -->
+		<!-- script disabled message -->
+		<noscript>
+			<input id="wzmMsg_JsClose" type="checkbox" title="Закрыть">
+			<div id="wzmMsg_JsInform" class="wzmMsg_Wrapp">
+				<div class="wzmMsg_Text">
+					<p>В Вашем браузере <strong>отключен JavaScript!</strong> Для корректной работы с сайтом необходима поддержка Javascript.</p>
+					<p>Мы рекомендуем Вам включить использование JavaScript в настройках вашего браузера.</p>
+				</div>
+				<a href="http://wezom.com.ua/" target="_blank" title="Студия Wezom" class="wzmMsg_Link">
+					<img src="pic/wezom-info-red.gif" width="50" height="18" alt="Студия Wezom">
+				</a>
+				<label for="wzmMsg_JsClose" class="wzmMsg_Close"><span>&times;</span></label>
+			</div>
+		</noscript>
+		<!-- old browser detect -->
+		<script>function $wzmOldInit(){var t=document.createElement("script");t.src="http://verstka.vps.kherson.ua/sources/plugins/wold/wold.js",document.body.appendChild(t)}try{document.addEventListener("DOMContentLoaded",$wzmOldInit,!1)}catch(e){window.attachEvent("onload",$wzmOldInit)}
+		</script>
+		<!-- svg sprite -->
+		<script>window.wSpriteSvg=function(t,e,i){var n={ns:"http://www.w3.org/2000/svg",initialize:function(e,i){if(this.prefix="wSpriteSvg_"+e.id,t.localSupport){var n=t.localStorage[this.prefix];if(n){var s=JSON.parse(n);this.setSprite(e,s)}else this.getJson(e,i)}else this.getJson(e,i)},getJson:function(e,i){var n=new XMLHttpRequest,s=this;n.open("GET",i,!0),n.setRequestHeader("Content-type","application/json"),n.onreadystatechange=function(){if(4==n.readyState&&200==n.status){var i=JSON.parse(n.responseText);s.setSprite(e,i),t.localSupport&&t.localWrite(s.prefix,JSON.stringify(i))}},n.send()},buildElem:function(t,i){var n,s,r;for(n in i)for(s in i[n]){var o=e.createElementNS(this.ns,s);for(r in i[n][s])"stops"===r?this.buildElem(o,i[n][s][r]):"innerHTML"==r?o.innerHTML=i[n][s][r]:o.setAttributeNS(null,r,i[n][s][r]);t.appendChild(o)}},setSprite:function(t,i){for(var n in i){var s=i[n],r=e.createElementNS(this.ns,"symbol");r.setAttributeNS(null,"id",n),r.setAttributeNS(null,"viewBox",s.viewBox),this.buildElem(r,s.symbol),s.hasOwnProperty("gradients")&&this.buildElem(t,s.gradients),t.appendChild(r)}this.isDone(t,i)},isDone:function(t,e){}};return n}(this,this.document);
+		</script>
+		<!-- изменить id у svg элемента -> #sprite_SiteName -->
+		<svg id="sprite_SiteName" xmlns="http://www.w3.org/2000/svg" style="height:0; width:0; visibility:hidden; position:absolute; top:0; left:0;" onload="wSpriteSvg.initialize(this,'jsons/svgsprite.json')"/>
+	</body>
+</html>

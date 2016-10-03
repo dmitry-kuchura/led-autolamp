@@ -1,0 +1,76 @@
+/*error.scss*/
+@font-face {
+  font-family: 'PFAgoraSans';
+  src: url("../fonts/PFAgoraSans.woff") format("woff"), url("../fonts/PFAgoraSans.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal; }
+
+/*
+    error.css
+    Wezom wTPL v4.0.0
+*/
+.errorPage {
+  overflow-x: hidden; }
+
+.errorWrapper {
+  display: table;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #0a0a0c url(../pic/404.jpg) bottom center no-repeat; }
+
+.no-moz .errorWrapper {
+  height: auto !important; }
+
+.errorHolder {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle; }
+
+.errorContent {
+  display: block;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center; }
+  .errorContent .wTxt {
+    text-align: center;
+    color: #fff; }
+    .errorContent .wTxt a {
+      color: #ffde00;
+      transition: all 0.2s ease; }
+      .errorContent .wTxt a:hover {
+        color: #fff; }
+
+.errorHeader {
+  color: #fff;
+  display: inline-block;
+  vertical-align: top;
+  font-weight: bold;
+  font-size: 200px;
+  line-height: 1em;
+  font-family: 'PFAgoraSans', Arial, Helvetica, sans-serif; }
+  .errorHeader:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 130%;
+    left: -15%;
+    bottom: 0;
+    height: 20%;
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+    opacity: .5;
+    background: radial-gradient(ellipse at center, #999 0%, rgba(153, 153, 153, 0) 60%); }
+
+@media only screen and (max-width: 720px) {
+  .errorHeader {
+    font-size: 150px; } }
+
+@media only screen and (max-width: 480px) {
+  .errorHeader {
+    font-size: 100px; } }
+
+/*# sourceMappingURL=maps/error.css.map */

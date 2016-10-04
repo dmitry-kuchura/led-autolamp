@@ -107,10 +107,10 @@
                                id="year" class="wInput">
                     </div>
                     <div class="wFormRow wTxt">
-                        <span>* - Например: NISSAN</span>
-                        <span>** - Например: ATLEON</span>
-                        <span>*** - Например: BD-30</span>
-                        <span>**** - Например: 2006</span>
+                        <span><span>*</span> - Например: NISSAN</span>
+                        <span><span>**</span> - Например: ATLEON</span>
+                        <span><span>***</span> - Например: BD-30</span>
+                        <span><span>****</span> - Например: 2006</span>
                     </div>
                     <?php if(array_key_exists('token', $_SESSION)): ?>
                         <input type="hidden" data-name="token" value="<?php echo $_SESSION['token']; ?>"/>

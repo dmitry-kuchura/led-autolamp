@@ -910,3 +910,8 @@ a {
 .buy_form .wFormRow span {
   display: block;
 }
+.buy_form .wFormRow span span {
+  display: inline-block;
+  vertical-align: top;
+  width: 20px;
+}

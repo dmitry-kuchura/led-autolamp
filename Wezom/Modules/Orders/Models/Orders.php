@@ -72,8 +72,9 @@ class Orders extends \Core\Common
 
     public static function getRows($status = NULL, $date_s = NULL, $date_po = NULL, $sort = NULL, $type = NULL, $limit = NULL, $offset = NULL)
     {
-        $result = DB::select(static::$table . '.*')
-            ->from(static::$table);
+        $result = DB::select(static::$table . '.*', ['cap.name', 'cap_name'])
+            ->from(static::$table)
+            ->join('cap', 'LEFT')->on('cap.id', '=', 'orders.cap');
         if ($status !== NULL) {
             $result->where(static::$table . '.status', '=', $status);
         }

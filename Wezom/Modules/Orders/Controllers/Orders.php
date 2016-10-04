@@ -60,9 +60,9 @@ class Orders extends \Wezom\Modules\Base
         $count = Model::countRows($status, $date_s, $date_po);
         $result = Model::getRows($status, $date_s, $date_po, 'id', 'DESC', $this->limit, ($page - 1) * $this->limit);
         $pager = Pager::factory($page, $count, $this->limit)->create();
-        $this->_toolbar = Widgets::get('Toolbar_ListOrders', ['add' => 1, 'delete' => 0]);
+        $this->_toolbar = Widgets::get('Toolbar_ListOrders', ['add' => 0, 'delete' => 1]);
         $this->_content = View::tpl(
-            array(
+            [
                 'result' => $result,
                 'tpl_folder' => $this->tpl_folder,
                 'tablename' => Model::$table,
@@ -71,7 +71,7 @@ class Orders extends \Wezom\Modules\Base
                 'pageName' => $this->_seo['h1'],
                 'statuses' => $this->statuses,
                 'st_classes' => $this->st_classes,
-            ), $this->tpl_folder . '/Index');
+            ], $this->tpl_folder . '/Index');
     }
 
     function editAction()
@@ -90,7 +90,7 @@ class Orders extends \Wezom\Modules\Base
 
     function addAction()
     {
-        $result = array();
+        $result = [];
         $post = $_POST;
         if ($_POST) {
             if (Model::valid($post)) {

@@ -28,7 +28,7 @@
                        class="wInput js-inputmask">
             </div>
             <div class="wFormRow">
-                <label for="select1">Выберете цоколь</label>
+                <label for="cap">Выберете цоколь</label>
                 <select type="text" required name="cap" data-name="cap" id="cap" class="wSelect js-select2">
                     <option value=""></option>
                     <?php foreach ($result as $item): ?>

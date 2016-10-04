@@ -42,41 +42,49 @@
         </div>
         <div class="order_block">
             <div class="order_title">Закажите прямо сейчас</div>
-            <div data-form="true" class="order_form wForm wFormDef">
+            <div data-form="true" class="order_form wForm wFormDef" data-ajax="order">
                 <div class="wFormRow">
-                    <label for="name3">Введите имя</label>
-                    <input type="text" required name="name3" data-rule-mminlength="2" data-rule-word="true"
-                           id="name3" class="wInput">
+                    <label for="name">Введите имя</label>
+                    <input type="text" required
+                           name="name"
+                           data-name="name"
+                           data-rule-mminlength="2"
+                           data-rule-word="true"
+                           id="name" class="wInput">
                 </div>
                 <div class="wFormRow">
-                    <label for="phove3">Введите номер телефона</label>
-                    <input type="tel" required name="phove3" data-rule-phoneua="true" id="phove3"
+                    <label for="phone">Введите номер телефона</label>
+                    <input type="tel" required
+                           name="phone"
+                           data-name="phone"
+                           data-rule-phoneua="true"
+                           id="phone1"
                            class="wInput js-inputmask">
                 </div>
                 <div class="wFormRow">
-                    <label for="select3">Выберете цоколь</label>
-                    <select type="text" required name="select3" id="select3" class="wSelect js-select2">
+                    <label for="cap">Выберете цоколь</label>
+                    <select type="text" required name="cap" data-name="cap" id="cap" class="wSelect js-select2">
                         <option value=""></option>
-                        <option value="1">Н1</option>
-                        <option value="2">Н3</option>
-                        <option value="3">Н4</option>
-                        <option value="4">Н7</option>
-                        <option value="5">Н8/Н11</option>
-                        <option value="6">9005 (HB3)</option>
-                        <option value="7">9006 (HB4)</option>
+                        <?php foreach ($result as $item): ?>
+                            <option value="<?php echo $item->id; ?>"><?php echo $item->name; ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="wFormRow">
-                    <label for="count3">Количество</label>
+                    <label for="count1">Количество</label>
                     <div class="counter_block">
                         <div class="spiner js-minus minus"></div>
                         <div class="counter js-couter">
-                            <input type="tel" data-count="1" value="1 шт" name="count3" id="count3" required
+                            <input type="tel" data-count="1" value="1 шт" data-name="count" name="count" id="count"
+                                   required
                                    class="wInput">
                         </div>
                         <div class="spiner js-plus plus"></div>
                     </div>
                 </div>
+                <?php if (array_key_exists('token', $_SESSION)): ?>
+                    <input type="hidden" data-name="token" value="<?php echo $_SESSION['token']; ?>"/>
+                <?php endif; ?>
                 <div class="wFormRow">
                     <button class="wSubmit wBtn"><span>оформить заказ</span></button>
                 </div>

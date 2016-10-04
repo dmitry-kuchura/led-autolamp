@@ -130,4 +130,11 @@ class Widgets
         return compact('result');
     }
 
+    public function Main_Compare()
+    {
+        $result = DB::select()->from('cap')->where('status', '=', 1)->find_all();
+
+        return compact('result');
+    }
+
 }

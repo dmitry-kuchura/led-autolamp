@@ -140,10 +140,17 @@ class Form extends \Modules\Ajax
         $lastID = Arr::get($lastID, 0);
 
         $qName = 'Новый заказ скидки';
-        $url = '/wezom/orders/edit/' . $lastID;
+        $url = '/wezom/simple/edit/' . $lastID;
         Log::add($qName, $url, 2);
 
-
+        $mail = DB::select()->from('mail_templates')->where('id', '=', 2)->where('status', '=', 1)->as_object()->execute()->current();
+        if ($mail) {
+            $from = ['{{name}}', '{{phone}}', '{{percent}}', '{{deliver}}'];
+            $to = [$name, $phone, $percent, $deliver];
+            $subject = str_replace($from, $to, $mail->subject);
+            $text = str_replace($from, $to, $mail->text);
+            Email::send($subject, $text);
+        }
 
         $this->success('Вы успешно оформили заказ скидки! Менеджер свяжется с Вами в ближайшее время!');
     }

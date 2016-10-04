@@ -57,33 +57,54 @@
         <div class="wSize">
             <div class="buy_form w_flr">
                 <div class="buy_form_title">Подобрать цоколь<br>для автомобиля</div>
-                <div data-form="true" class="wForm wFormDef">
+                <div data-form="true" class="wForm wFormDef" data-ajax="selection">
                     <div class="wFormRow">
-                        <label for="name4">Введите Ваше имя</label>
-                        <input type="text" required name="name4" data-rule-word="true" data-rule-mminlength="2"
-                               id="name4" class="wInput">
+                        <label for="name">Введите Ваше имя</label>
+                        <input type="text" required
+                               name="name"
+                               data-name="name"
+                               data-rule-word="true"
+                               data-rule-mminlength="2"
+                               id="name" class="wInput">
                     </div>
                     <div class="wFormRow">
-                        <label for="mark4">Укажите марку*</label>
-                        <input type="text" required name="mark4" id="mark4" class="wInput">
+                        <label for="mark">Укажите марку*</label>
+                        <input type="text" required
+                               name="mark"
+                               data-name="mark"
+                               id="mark" class="wInput">
                     </div>
                     <div class="wFormRow">
-                        <label for="model4">Укажите модель**</label>
-                        <input type="text" required name="model4" id="model4" class="wInput">
+                        <label for="model">Укажите модель**</label>
+                        <input type="text" required
+                               name="model"
+                               data-name="model"
+                               id="model" class="wInput">
                     </div>
                     <div class="wFormRow">
-                        <label for="mail4">Введите Ваш E-mail</label>
-                        <input type="email" required name="mail4" data-rule-email="true" id="mail4"
+                        <label for="email">Введите Ваш E-mail</label>
+                        <input type="email"
+                               required
+                               name="email"
+                               data-name="email"
+                               data-rule-email="true" id="email"
                                class="wInput">
                     </div>
                     <div class="wFormRow">
-                        <label for="type4">Укажите тип двигателя***</label>
-                        <input type="text" required name="type4" id="type4" class="wInput">
+                        <label for="engine">Укажите тип двигателя***</label>
+                        <input type="text" required
+                               name="engine"
+                               data-name="engine"
+                               id="engine" class="wInput">
                     </div>
                     <div class="wFormRow">
-                        <label for="year4">Укажите год выпуска****</label>
-                        <input type="tel" required name="year4" data-rule-minlength="4" data-rule-digits="true"
-                               id="year4" class="wInput">
+                        <label for="year">Укажите год выпуска****</label>
+                        <input type="tel" required
+                               name="year"
+                               data-name="year"
+                               data-rule-minlength="4"
+                               data-rule-digits="true"
+                               id="year" class="wInput">
                     </div>
                     <div class="wFormRow wTxt">
                         <span>* - Например: NISSAN</span>
@@ -91,6 +112,9 @@
                         <span>*** - Например: BD-30</span>
                         <span>**** - Например: 2006</span>
                     </div>
+                    <?php if(array_key_exists('token', $_SESSION)): ?>
+                        <input type="hidden" data-name="token" value="<?php echo $_SESSION['token']; ?>"/>
+                    <?php endif; ?>
                     <div class="wFormRow">
                         <button class="wSubmit wBtn"><span>Спросить менеджера</span></button>
                     </div>

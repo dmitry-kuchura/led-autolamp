@@ -155,4 +155,62 @@ class Form extends \Modules\Ajax
         $this->success('Вы успешно оформили заказ скидки! Менеджер свяжется с Вами в ближайшее время!');
     }
 
+    public function selectionAction()
+    {
+        $name = Arr::get($this->post, 'name');
+        $mark = Arr::get($this->post, 'mark');
+        $model = Arr::get($this->post, 'model');
+        $email = Arr::get($this->post, 'email');
+        $engine = Arr::get($this->post, 'engine');
+        $year = Arr::get($this->post, 'year');
+        if (!$name) {
+            $this->error('Имя введено неверно!');
+        }
+        if (!$mark) {
+            $this->error('Не указана марка!');
+        }
+        if (!$model) {
+            $this->error('Не указана модель!');
+        }
+        if (!$email) {
+            $this->error('Не указан email!');
+        }
+        if (!$engine) {
+            $this->error('Не указан тип двигателя!');
+        }
+        if (!$year) {
+            $this->error('Не указан год выпуска!');
+        }
+
+        $ip = System::getRealIP();
+        $check = DB::select(array(DB::expr('selection.id'), 'count'))
+            ->from('selection')
+            ->where('ip', '=', $ip)
+            ->where('created_at', '>', time() - 60)
+            ->as_object()->execute()->current();
+        if (is_object($check) AND $check->count) {
+            $this->error('Пожалуйста, повторите попытку через минуту!');
+        }
+
+        $keys = ['name', 'mark', 'model', 'email', 'engine', 'year', 'ip', 'created_at'];
+        $values = [$name, $mark, $model, $email, $engine, $year, $ip, time()];
+        $lastID = DB::insert('selection', $keys)->values($values)->execute();
+        $lastID = Arr::get($lastID, 0);
+
+        $qName = 'Новый подбор цоколя';
+        $url = '/wezom/simple/edit/' . $lastID;
+        Log::add($qName, $url, 1);
+
+        $mail = DB::select()->from('mail_templates')->where('id', '=', 3)->where('status', '=', 1)->as_object()->execute()->current();
+        if ($mail) {
+            $from = ['{{name}}', '{{mark}}', '{{model}}', '{{email}}', '{{engine}}', '{{year}}'];
+            $to = [$name, $mark, $model, $email, $engine, $year];
+            $subject = str_replace($from, $to, $mail->subject);
+            $text = str_replace($from, $to, $mail->text);
+            Email::send($subject, $text);
+        }
+
+        $this->success('Вы успешно оформили заказ скидки! Менеджер свяжется с Вами в ближайшее время!');
+    }
+
 }

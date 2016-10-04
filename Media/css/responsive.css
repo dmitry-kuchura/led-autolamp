@@ -114,6 +114,10 @@
     float: none;
     margin-bottom: 20px;
     text-align: center; }
+    .adv_khar.w_left .adv_opus,
+    .adv_khar.w_right .adv_opus {
+      padding: 0;
+    }
     .adv_khar.w_right .adv_khar_img img,
     .adv_khar.w_left .adv_khar_img img {
       width: 400px;

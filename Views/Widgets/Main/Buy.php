@@ -59,31 +59,37 @@
                 <div class="buy_form_title">Подобрать цоколь<br>для автомобиля</div>
                 <div data-form="true" class="wForm wFormDef">
                     <div class="wFormRow">
-                        <label for="name4">Введите имя</label>
+                        <label for="name4">Введите Ваше имя</label>
                         <input type="text" required name="name4" data-rule-word="true" data-rule-mminlength="2"
                                id="name4" class="wInput">
                     </div>
                     <div class="wFormRow">
-                        <label for="mark4">Укажите марку</label>
+                        <label for="mark4">Укажите марку*</label>
                         <input type="text" required name="mark4" id="mark4" class="wInput">
                     </div>
                     <div class="wFormRow">
-                        <label for="model4">Укажите модель</label>
+                        <label for="model4">Укажите модель**</label>
                         <input type="text" required name="model4" id="model4" class="wInput">
                     </div>
                     <div class="wFormRow">
-                        <label for="mail4">Введите E-mail</label>
+                        <label for="mail4">Введите Ваш E-mail</label>
                         <input type="email" required name="mail4" data-rule-email="true" id="mail4"
                                class="wInput">
                     </div>
                     <div class="wFormRow">
-                        <label for="type4">Укажите тип двигателя</label>
+                        <label for="type4">Укажите тип двигателя***</label>
                         <input type="text" required name="type4" id="type4" class="wInput">
                     </div>
                     <div class="wFormRow">
-                        <label for="year4">Укажите год выпуска</label>
+                        <label for="year4">Укажите год выпуска****</label>
                         <input type="tel" required name="year4" data-rule-minlength="4" data-rule-digits="true"
                                id="year4" class="wInput">
+                    </div>
+                    <div class="wFormRow wTxt">
+                        <span>* - Например: NISSAN</span>
+                        <span>** - Например: ATLEON</span>
+                        <span>*** - Например: BD-30</span>
+                        <span>**** - Например: 2006</span>
                     </div>
                     <div class="wFormRow">
                         <button class="wSubmit wBtn"><span>Спросить менеджера</span></button>

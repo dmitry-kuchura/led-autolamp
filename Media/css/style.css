@@ -509,6 +509,12 @@ a {
     float: right; }
   .adv_khar.w_left .adv_khar_img {
     float: left; }
+  .adv_khar.w_right .adv_opus {
+    padding-left: 7%;
+  }
+  .adv_khar.w_left .adv_opus {
+    padding-right: 7%;
+  }
 
 .adv_khar_img {
   width: 58%;
@@ -899,3 +905,8 @@ a {
     z-index: 20; }
 
 /*# sourceMappingURL=maps/style.css.map */
+
+
+.buy_form .wFormRow span {
+  display: block;
+}

@@ -35,6 +35,7 @@ class Reviews extends \Wezom\Modules\Base
     function indexAction()
     {
         $date_s = NULL;
+        $name = NULL;
         $date_po = NULL;
         $status = NULL;
         if (Arr::get($_GET, 'date_s')) {
@@ -46,8 +47,11 @@ class Reviews extends \Wezom\Modules\Base
         if (isset($_GET['status']) && $_GET['status'] != '') {
             $status = Arr::get($_GET, 'status', 1);
         }
-        $count = Model::countRows($status, $date_s, $date_po);
-        $result = Model::getRows($status, $date_s, $date_po, 'date', 'DESC', $this->limit, $this->offset);
+        if (isset($_GET['name']) && $_GET['name'] != '') {
+            $name = Arr::get($_GET, 'name', 1);
+        }
+        $count = Model::countRows($status, $date_s, $date_po, $name);
+        $result = Model::getRows($status, $date_s, $date_po, $name, 'date', 'DESC', $this->limit, $this->offset);
         $pager = Pager::factory($this->page, $count, $this->limit)->create();
         $this->_toolbar = Widgets::get('Toolbar_List', array('delete' => 1, 'add' => 1));
         $this->_content = View::tpl(
@@ -146,16 +150,17 @@ class Reviews extends \Wezom\Modules\Base
         HTTP::redirect('wezom/' . Route::controller() . '/index');
     }
 
-    function deleteImageAction() {
-        $id = (int) Route::param('id');
+    function deleteImageAction()
+    {
+        $id = (int)Route::param('id');
         $page = Model::getRow($id);
-        if(!$page) {
+        if (!$page) {
             Message::GetMessage(0, 'Данные не существуют!');
-            HTTP::redirect('wezom/'.Route::controller().'/index');
+            HTTP::redirect('wezom/' . Route::controller() . '/index');
         }
         Model::deleteImage($page->image, $id);
         Message::GetMessage(1, 'Данные удалены!');
-        HTTP::redirect('wezom/'.Route::controller().'/edit/'.$id);
+        HTTP::redirect('wezom/' . Route::controller() . '/edit/' . $id);
     }
 
 }

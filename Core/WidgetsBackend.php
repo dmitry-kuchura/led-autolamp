@@ -62,7 +62,7 @@ class WidgetsBackend
             }
         }
 
-        $counts = array();
+        $counts = [];
         $counts['contacts'] = (int)DB::select(array(DB::expr('COUNT(id)'), 'count'))->from('contacts')->where('status', '=', 0)->count_all();
         $counts['callbacks'] = (int)DB::select(array(DB::expr('COUNT(id)'), 'count'))->from('callback')->where('status', '=', 0)->count_all();
         $counts['orders'] = (int)DB::select(array(DB::expr('COUNT(id)'), 'count'))->from('orders')->where('status', '=', 0)->count_all();

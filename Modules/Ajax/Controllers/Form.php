@@ -64,7 +64,7 @@ class Form extends \Modules\Ajax
         $name = Arr::get($this->post, 'name');
         $phone = Arr::get($this->post, 'phone');
         $cap = Arr::get($this->post, 'cap');
-        $count = Arr::get($this->post, 'count');
+        $count = (int) Arr::get($this->post, 'count');
         if (!$name) {
             $this->error('Имя введено неверно!');
         }
@@ -88,31 +88,26 @@ class Form extends \Modules\Ajax
             $this->error('Пожалуйста, повторите попытку через минуту!');
         }
 
-        // Save data
         $keys = ['name', 'phone', 'cap', 'count', 'ip', 'created_at'];
         $values = [$name, $phone, $cap, $count, $ip, time()];
         $lastID = DB::insert('orders', $keys)->values($values)->execute();
         $lastID = Arr::get($lastID, 0);
 
-        // Save log
         $qName = 'Новый заказ';
         $url = '/wezom/orders/edit/' . $lastID;
         Log::add($qName, $url, 7);
 
-        /*
-        // Send message to admin if need
-        $mail = DB::select()->from('mail_templates')->where('id', '=', 8)->where('status', '=', 1)->as_object()->execute()->current();
+        $item = DB::select()->from('cap')->where('id', '=', $cap)->find();
+
+        $mail = DB::select()->from('mail_templates')->where('id', '=', 1)->where('status', '=', 1)->as_object()->execute()->current();
         if ($mail) {
-            $from = array('{{site}}', '{{ip}}', '{{date}}', '{{phone}}', '{{link}}', '{{admin_link}}', '{{item_name}}');
-            $to = array(
-                Arr::get($_SERVER, 'HTTP_HOST'), $ip, date('d.m.Y H:i'),
-                $phone, $link, $link_admin, $item->name,
-            );
+            $from = ['{{name}}', '{{phone}}', '{{cap}}', '{{count}}'];
+            $to = [$name, $phone, $item->name, $count];
             $subject = str_replace($from, $to, $mail->subject);
             $text = str_replace($from, $to, $mail->text);
             Email::send($subject, $text);
         }
-        */
+
         $this->success('Вы успешно оформили заказ! Менеджер свяжется с Вами в ближайшее время!');
     }
 
@@ -139,31 +134,17 @@ class Form extends \Modules\Ajax
             $this->error('Пожалуйста, повторите попытку через минуту!');
         }
 
-        // Save data
         $keys = ['name', 'phone', 'deliver', 'percent', 'ip', 'created_at'];
         $values = [$name, $phone, $deliver, $percent, $ip, time()];
         $lastID = DB::insert('orders_simple', $keys)->values($values)->execute();
         $lastID = Arr::get($lastID, 0);
 
-        // Save log
         $qName = 'Новый заказ скидки';
         $url = '/wezom/orders/edit/' . $lastID;
         Log::add($qName, $url, 2);
 
-        /*
-        // Send message to admin if need
-        $mail = DB::select()->from('mail_templates')->where('id', '=', 8)->where('status', '=', 1)->as_object()->execute()->current();
-        if ($mail) {
-            $from = array('{{site}}', '{{ip}}', '{{date}}', '{{phone}}', '{{link}}', '{{admin_link}}', '{{item_name}}');
-            $to = array(
-                Arr::get($_SERVER, 'HTTP_HOST'), $ip, date('d.m.Y H:i'),
-                $phone, $link, $link_admin, $item->name,
-            );
-            $subject = str_replace($from, $to, $mail->subject);
-            $text = str_replace($from, $to, $mail->text);
-            Email::send($subject, $text);
-        }
-        */
+
+
         $this->success('Вы успешно оформили заказ скидки! Менеджер свяжется с Вами в ближайшее время!');
     }
 

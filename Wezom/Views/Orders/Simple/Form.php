@@ -1,6 +1,6 @@
 <?php echo \Forms\Builder::open(); ?>
     <div class="form-actions" style="display: none;">
-        <?php echo \Forms\Form::submit(array('name' => 'name', 'value' => 'Отправить', 'class' => 'submit btn btn-primary pull-right')); ?>
+        <?php echo \Forms\Form::submit(['name' => 'name', 'value' => 'Отправить', 'class' => 'submit btn btn-primary pull-right']); ?>
     </div>
     <div class="col-md-12">
         <div class="widget">
@@ -12,20 +12,16 @@
                     <?php if ($obj->created_at): ?>
                         <div class="form-group">
                             <label class="control-label">Дата</label>
-                            <?php echo date( 'd.m.Y H:i:s', $obj->created_at ); ?>
+                            <?php echo date('d.m.Y H:i:s', $obj->created_at); ?>
                         </div>
                     <?php endif ?>
                     <div class="form-group">
-                        <label class="control-label">IP</label>
-                        <?php echo $obj->ip; ?>
+                        <label class="control-label">% скидки</label>
+                        <?php echo $obj->percent; ?>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Товар</label>
-                        <?php if (!$item): ?>
-                            <span style="color: #ccc; font-style: italic;">( Удален )</span>
-                        <?php else: ?>
-                            <a href="/wezom/catalog/new/id/<?php echo $obj->id; ?>" target="_blank"><?php echo $item->name; ?></a>
-                        <?php endif; ?>
+                        <label class="control-label">Скидка</label>
+                        <?php echo $obj->deliver; ?><span style="color: #ccc; font-style: italic;"> ( грн. )</span>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Номер телефона</label>

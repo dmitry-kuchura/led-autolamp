@@ -91,12 +91,14 @@ class Widgets
             HTML::media('css/components.css'),
             HTML::media('css/style.css'),
             HTML::media('css/responsive.css'),
+            HTML::media('css/programmer/fpopup.css'),
         ];
         $scripts = [
             HTML::media('js/libs.js'),
             HTML::media('js/components.js'),
             HTML::media('js/inits.js'),
             HTML::media('js/validation.js'),
+            HTML::media('js/programmer/my.js'),
         ];
 
         return compact('scripts', 'styles');

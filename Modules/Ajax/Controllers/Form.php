@@ -198,7 +198,7 @@ class Form extends \Modules\Ajax
         $lastID = Arr::get($lastID, 0);
 
         $qName = 'Новый подбор цоколя';
-        $url = '/wezom/simple/edit/' . $lastID;
+        $url = '/wezom/selection/edit/' . $lastID;
         Log::add($qName, $url, 1);
 
         $mail = DB::select()->from('mail_templates')->where('id', '=', 3)->where('status', '=', 1)->as_object()->execute()->current();
@@ -208,6 +208,16 @@ class Form extends \Modules\Ajax
             $subject = str_replace($from, $to, $mail->subject);
             $text = str_replace($from, $to, $mail->text);
             Email::send($subject, $text);
+        }
+
+        // User
+        $mail = DB::select()->from('mail_templates')->where('id', '=', 4)->where('status', '=', 1)->as_object()->execute()->current();
+        if ($mail) {
+            $from = ['{{name}}', '{{mark}}', '{{model}}', '{{email}}', '{{engine}}', '{{year}}'];
+            $to = [$name, $mark, $model, $email, $engine, $year];
+            $subject = str_replace($from, $to, $mail->subject);
+            $text = str_replace($from, $to, $mail->text);
+            Email::send($subject, $text, $email);
         }
 
         $this->success('Вы успешно оформили заказ скидки! Менеджер свяжется с Вами в ближайшее время!');

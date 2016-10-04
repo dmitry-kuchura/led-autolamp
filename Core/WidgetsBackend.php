@@ -40,7 +40,7 @@ class WidgetsBackend
             }
         } else {
             $access = User::access();
-            $_arr = array();
+            $_arr = [];
             foreach ($result AS $obj) {
                 $r = explode('/', trim($obj->link, '/'));
                 if (!$obj->link || Arr::get($access, $r[0], 'no') == 'edit' || (Arr::get($access, $r[0]) == 'view' && Arr::get($r, 1) == 'index')) {
@@ -49,7 +49,7 @@ class WidgetsBackend
                     $_arr[$obj->id_parent][] = $obj;
                 }
             }
-            $arr = array();
+            $arr = [];
             foreach ($_arr[0] AS $el) {
                 if (($el->link || count(Arr::get($_arr, $el->id, array())))) {
                     $arr[0][] = $el;
@@ -63,15 +63,16 @@ class WidgetsBackend
         }
 
         $counts = [];
-        $counts['contacts'] = (int)DB::select(array(DB::expr('COUNT(id)'), 'count'))->from('contacts')->where('status', '=', 0)->count_all();
-        $counts['callbacks'] = (int)DB::select(array(DB::expr('COUNT(id)'), 'count'))->from('callback')->where('status', '=', 0)->count_all();
-        $counts['orders'] = (int)DB::select(array(DB::expr('COUNT(id)'), 'count'))->from('orders')->where('status', '=', 0)->count_all();
-        $counts['simple_orders'] = (int)DB::select(array(DB::expr('COUNT(id)'), 'count'))->from('orders_simple')->where('status', '=', 0)->count_all();
-        $counts['all_orders'] = $counts['orders'] + $counts['simple_orders'];
+        $counts['contacts'] = (int)DB::select([DB::expr('COUNT(id)'), 'count'])->from('contacts')->where('status', '=', 0)->count_all();
+        $counts['callbacks'] = (int)DB::select([DB::expr('COUNT(id)'), 'count'])->from('callback')->where('status', '=', 0)->count_all();
+        $counts['orders'] = (int)DB::select([DB::expr('COUNT(id)'), 'count'])->from('orders')->where('status', '=', 0)->count_all();
+        $counts['simple_orders'] = (int)DB::select([DB::expr('COUNT(id)'), 'count'])->from('orders_simple')->where('status', '=', 0)->count_all();
+        $counts['selection'] = (int)DB::select([DB::expr('COUNT(id)'), 'count'])->from('selection')->where('status', '=', 0)->count_all();
+        $counts['all_orders'] = $counts['orders'] + $counts['simple_orders'] + $counts['selection'];
         $counts['all_emails'] = $counts['contacts'] + $counts['callbacks'];
-        $counts['reviews'] = (int)DB::select(array(DB::expr('COUNT(id)'), 'count'))->from('reviews')->where('status', '=', 0)->count_all();
+        $counts['reviews'] = (int)DB::select([DB::expr('COUNT(id)'), 'count'])->from('reviews')->where('status', '=', 0)->count_all();
 
-        return array('result' => $arr, 'counts' => $counts);
+        return ['result' => $arr, 'counts' => $counts];
     }
 
 

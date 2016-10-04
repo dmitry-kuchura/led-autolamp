@@ -12,4 +12,9 @@ return [
     'wezom/simple/index/page/<page:[0-9]*>' => 'orders/simple/index',
     'wezom/simple/edit/<id:[0-9]*>' => 'orders/simple/edit',
     'wezom/simple/delete/<id:[0-9]*>' => 'orders/simple/delete',
+    // Selection
+    'wezom/selection/index' => 'orders/selection/index',
+    'wezom/selection/index/page/<page:[0-9]*>' => 'orders/selection/index',
+    'wezom/selection/edit/<id:[0-9]*>' => 'orders/selection/edit',
+    'wezom/selection/delete/<id:[0-9]*>' => 'orders/selection/delete',
 ];

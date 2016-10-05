@@ -142,6 +142,7 @@ a {
   display: inline-block;
   vertical-align: top;
   text-decoration: none; }
+.phone_top + .phone_top {margin-left: 10px;}
   .phone_top svg {
     height: 17px;
     width: 8px;
@@ -899,6 +900,8 @@ a {
     line-height: 30px;
     font-size: 10px;
     float: none;
+    -webkit-user-select: none;
+    user-select: none;
     vertical-align: top; }
   .wHeaderFix.scroll {
     opacity: 1;
@@ -914,4 +917,12 @@ a {
   display: inline-block;
   vertical-align: top;
   width: 20px;
+}
+.content {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+}
+#fPopUp {
+  min-width: 320px !important;
 }

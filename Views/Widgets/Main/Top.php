@@ -14,7 +14,7 @@
                 <input type="text" required
                        name="name"
                        data-name="name"
-                       data-rule-mminlength="2"
+                       data-rule-minlength="2"
                        data-rule-word="true"
                        id="name" class="wInput">
             </div>

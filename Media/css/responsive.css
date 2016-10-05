@@ -20,6 +20,15 @@
   .order_block {
     padding: 30px; } }
 
+@media only screen and (max-width: 1150px) {
+  .phone_top,
+  .graf_top {display: block;
+    margin-left: 0;}
+.phone_top + .phone_top {margin-left: 0px;}
+  .phone_graf_top {
+    padding-top: 5px; }
+    .graf_top .graf_info span + span {margin-top: 5px;}
+}
 @media only screen and (max-width: 1100px) {
   .wForm label:not(.error) {
     font-size: 12px;
@@ -75,7 +84,7 @@
   .sale_form .wFormRow {
     padding: 0 5px; }
   .wBtn {
-    font-size: 12px; }
+    font-size: 13px; }
   .logo_block {
     width: 70px; }
     .logo_block .logo {
@@ -86,8 +95,6 @@
     .site_name span {
       font-size: 45px;
       line-height: 55px; }
-  .phone_graf_top {
-    padding-top: 10px; }
   .phone_top {
     display: block; }
   .graf_top {
@@ -96,6 +103,15 @@
     margin-top: 0; } }
 
 @media only screen and (max-width: 720px) {
+  .order_title {
+    line-height: 30px;
+  }
+  .phone_graf_top {
+    padding-top: 0px;}
+    .phone_top {height: 15px;}
+    .phone_top svg {height: 15px;}
+    .phone_top span {line-height: 15px;}
+    .graf_top .graf_info span + span {margin-top: 0px;}
   .site_name {
     font-size: 25px;
     line-height: 35px; }

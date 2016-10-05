@@ -27,7 +27,7 @@
             if ($_POST) {
                 $errors = [];
                 if ($_POST['discount-date_from'] > $_POST['discount-date_to']) {
-                    $errors[] = 'Дата "ОТ" не должна быть даты "ДО"!';
+                    $errors[] = 'Дата "ОТ" не должна быть больше даты "ДО"! Но, хорошая попытка!';
                 }
                 $result = Common::factory('config')->getRows(1);
                 foreach($result AS $obj) {

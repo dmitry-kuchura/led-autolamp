@@ -63,7 +63,7 @@
                             <th>% скидки</th>
                             <th>Телефон</th>
                             <th>Дата</th>
-                            <th>Опубликовано?</th>
+                            <th>Просмотренно?</th>
                             <th class="nav-column textcenter">&nbsp;</th>
                         </tr>
                         </thead>

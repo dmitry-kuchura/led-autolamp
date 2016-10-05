@@ -66,7 +66,7 @@
                             <th>Год выпуска</th>
                             <th>Email</th>
                             <th>Дата заказа</th>
-                            <th>Опубликовано?</th>
+                            <th>Просмотренно?</th>
                             <th class="nav-column textcenter">&nbsp;</th>
                         </tr>
                         </thead>

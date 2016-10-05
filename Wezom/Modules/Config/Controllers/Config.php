@@ -25,8 +25,11 @@
 
         function editAction () {
             if ($_POST) {
+                $errors = [];
+                if ($_POST['discount-date_from'] > $_POST['discount-date_to']) {
+                    $errors[] = 'Дата "ОТ" не должна быть даты "ДО"!';
+                }
                 $result = Common::factory('config')->getRows(1);
-                $errors = array();
                 foreach($result AS $obj) {
                     if (array_key_exists($obj->group.'-'.$obj->key, $_POST)) {
                         $value = Arr::get($_POST, $obj->group.'-'.$obj->key);

@@ -23,7 +23,7 @@
             $this->_seo['h1'] = 'Черный список';
             $this->_seo['title'] = 'Черный список';
             $this->setBreadcrumbs('Черный список', 'wezom/'.Route::controller().'/index');
-            $this->limit = (int) Arr::get($_GET, 'limit', Config::get('basic.limit_backend')) < 1 ?: Arr::get($_GET, 'limit', Config::get('basic.limit_backend'));
+            $this->limit = (int) Arr::get($_GET, 'limit', Config::get('static.limit_backend')) < 1 ?: Arr::get($_GET, 'limit', Config::get('static.limit_backend'));
         }
 
         function indexAction () {

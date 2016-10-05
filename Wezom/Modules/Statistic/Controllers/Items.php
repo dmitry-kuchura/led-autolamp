@@ -25,7 +25,7 @@
             $this->_seo['title'] = 'Статистика по товарам';
             $this->setBreadcrumbs('Статистика по товарам', 'wezom/statistic/items');
             $this->page = (int )Route::param('page') ?: 1;
-            $this->limit = (int) Arr::get($_GET, 'limit', Config::get('basic.limit_backend')) ?: 1;
+            $this->limit = (int) Arr::get($_GET, 'limit', Config::get('static.limit_backend')) ?: 1;
             $this->offset = ($this->page - 1) * $this->limit;
         }
 

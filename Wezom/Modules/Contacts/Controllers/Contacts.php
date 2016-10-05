@@ -25,7 +25,7 @@
             $this->_seo['title'] = 'Сообщения из контактной формы';
             $this->setBreadcrumbs('Сообщения из контактной формы', 'wezom/'.Route::controller().'/index');
             $this->page = (int) Route::param('page') ? (int) Route::param('page') : 1;
-            $this->limit = Config::get('basic.limit_backend');
+            $this->limit = Config::get('static.limit_backend');
             $this->offset = ($this->page - 1) * $this->limit;
         }
 

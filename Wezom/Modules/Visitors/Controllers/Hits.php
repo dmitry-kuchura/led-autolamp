@@ -24,7 +24,7 @@
             $this->_seo['title'] = 'Переходы по сайту';
             $this->setBreadcrumbs('Переходы по сайту', 'wezom/'.Route::controller().'/index');
             $this->page = (int) Route::param('page') ? (int) Route::param('page') : 1;
-            $this->limit = (int) Arr::get($_GET, 'limit', Config::get('basic.limit_backend')) < 1 ?: Arr::get($_GET, 'limit', Config::get('basic.limit_backend'));
+            $this->limit = (int) Arr::get($_GET, 'limit', Config::get('static.limit_backend')) < 1 ?: Arr::get($_GET, 'limit', Config::get('static.limit_backend'));
             $this->offset = ($this->page - 1) * $this->limit;
 
             $sort = array('updated_at', 'created_at');

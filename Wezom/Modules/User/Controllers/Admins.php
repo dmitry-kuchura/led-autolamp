@@ -32,7 +32,7 @@
             $this->_seo['title'] = 'Администраторы';
             $this->setBreadcrumbs('Администраторы', 'wezom/admins/index');
             $this->page = (int) Route::param('page') ? (int) Route::param('page') : 1;
-            $this->limit = Config::get('basic.limit_backend');
+            $this->limit = Config::get('static.limit_backend');
             $this->offset = ($this->page - 1) * $this->limit;
             $aroles = Roles::getBackendUsersRoles();
             foreach( $aroles AS $obj ) {

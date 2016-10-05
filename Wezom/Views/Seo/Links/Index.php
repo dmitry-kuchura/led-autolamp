@@ -21,10 +21,10 @@
         <div class="col-md-2">
             <?php $options = array(); ?>
             <?php for($i = 1; $i <= 5; $i++): ?>
-                <?php $number = $i * Core\Config::get('basic.limit_backend'); ?>
+                <?php $number = $i * Core\Config::get('static.limit_backend'); ?>
                 <?php $options[$number] = $number; ?>
             <?php endfor; ?>
-            <?php echo \Forms\Builder::select($options, Core\Arr::get($_GET, 'limit', Core\Config::get('basic.limit_backend')), array(
+            <?php echo \Forms\Builder::select($options, Core\Arr::get($_GET, 'limit', Core\Config::get('static.limit_backend')), array(
                 'name' => 'limit',
             ), 'Выводить по'); ?>
         </div>

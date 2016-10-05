@@ -4,7 +4,7 @@
     use Core\Config;
     use Core\Encrypt;
     use Core\HTML;
-    use Core\Image\Image;
+//    use Core\Image\Image;
     use Core\Route;
     use Core\SimpleImage;
     use Core\Widgets;
@@ -14,7 +14,7 @@
     use Core\View;
     use Core\Pager\Pager;
 
-    use Wezom\Modules\Content\Models\Articles AS Model;
+    //use Wezom\Modules\Content\Models\Articles AS Model;
 
     class Crop extends \Wezom\Modules\Base {
 
@@ -29,6 +29,7 @@
         function indexAction () {
             $str = Encrypt::instance()->decode($_GET['hash']);
             $arr = json_decode($str, true);
+
             if(count($arr) != 4) {
                 return Config::error();
             }
@@ -44,7 +45,6 @@
                 }
             }
             if(!count($images) || !$current) {
-                die('2');
                 return Config::error();
             }
 
@@ -53,7 +53,6 @@
 
             $filename = HTML::media('images'.DS.$arr[0].DS.'original'.DS.$arr[1]);
             if(!is_file(HOST.$filename)) {
-                die('3');
                 return Config::error();
             }
 
@@ -81,7 +80,7 @@
                     'images' => $images,
                     'json' => json_encode($current),
                     'tpl_folder' => $this->tpl_folder,
-                    'tablename' => Model::$table,
+                    //'tablename' => Model::$table,
                     'pageName' => $this->_seo['h1'],
                     'image' => $filename,
                     'current' => $current,

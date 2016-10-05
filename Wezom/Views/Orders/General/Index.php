@@ -64,7 +64,7 @@
                             <th>Кол-во</th>
                             <th>Телефон</th>
                             <th>Дата</th>
-                            <th>Опубликовано?</th>
+                            <th>Просмотренно?</th>
                             <th class="nav-column textcenter">&nbsp;</th>
                         </tr>
                         </thead>
@@ -99,11 +99,6 @@
                                                 <li>
                                                     <a href="/wezom/<?php echo Core\Route::controller(); ?>/edit/<?php echo $obj->id; ?>"
                                                        title="Редактировать"><i class="fa-pencil"></i> Редактировать</a>
-                                                </li>
-                                                <li>
-                                                    <a href="/wezom/items/edit/<?php echo $obj->catalog_id; ?>"
-                                                       title="Перейти к товару"><i class="fa-inbox"></i> Перейти к
-                                                        товару</a>
                                                 </li>
                                                 <li class="divider"></li>
                                                 <li>

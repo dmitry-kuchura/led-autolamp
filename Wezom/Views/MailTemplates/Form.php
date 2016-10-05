@@ -81,24 +81,6 @@
                         <div class="col-md-6">{{percent}}</div>
                     </div>
                 <?php endif; ?>
-                <?php if ($obj->id == 2): ?>
-                    <div class="rowSection">
-                        <div class="col-md-6"><strong>Имя</strong></div>
-                        <div class="col-md-6">{{name}}</div>
-                    </div>
-                    <div class="rowSection">
-                        <div class="col-md-6"><strong>Телефон</strong></div>
-                        <div class="col-md-6">{{phone}}</div>
-                    </div>
-                    <div class="rowSection">
-                        <div class="col-md-6"><strong>Скидка</strong></div>
-                        <div class="col-md-6">{{deliver}}</div>
-                    </div>
-                    <div class="rowSection">
-                        <div class="col-md-6"><strong>% Скидки</strong></div>
-                        <div class="col-md-6">{{percent}}</div>
-                    </div>
-                <?php endif; ?>
                 <?php if ($obj->id == 3 OR $obj->id == 4): ?>
                     <div class="rowSection">
                         <div class="col-md-6"><strong>Имя покупателя</strong></div>

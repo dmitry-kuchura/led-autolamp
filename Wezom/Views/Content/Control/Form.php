@@ -41,15 +41,6 @@
                 <div class="form-vertical row-border">
                     <div class="form-group">
                         <?php echo \Forms\Builder::input(array(
-                            'name' => 'FORM[h1]',
-                            'value' => $obj->h1,
-                        ), array(
-                            'text' => 'H1',
-                            'tooltip' => 'Рекомендуется, чтобы тег h1 содержал ключевую фразу, которая частично или полностью совпадает с title',
-                        )); ?>
-                    </div>
-                    <div class="form-group">
-                        <?php echo \Forms\Builder::input(array(
                             'name' => 'FORM[title]',
                             'value' => $obj->title,
                         ), array(

@@ -64,8 +64,8 @@ class Form extends \Modules\Ajax
         $name = Arr::get($this->post, 'name');
         $phone = Arr::get($this->post, 'phone');
         $cap = Arr::get($this->post, 'cap');
-        $count = (int) Arr::get($this->post, 'count');
-        if (!$name) {
+        $count = (int)Arr::get($this->post, 'count');
+        if (!$name OR mb_strlen($name, 'UTF-8') < 2) {
             $this->error('Имя введено неверно!');
         }
         if (!$phone) {
@@ -117,7 +117,7 @@ class Form extends \Modules\Ajax
         $phone = Arr::get($this->post, 'phone');
         $percent = Config::get('discount.percent');
         $deliver = Config::get('discount.price');
-        if (!$name) {
+        if (!$name OR mb_strlen($name, 'UTF-8') < 2) {
             $this->error('Имя введено неверно!');
         }
         if (!$phone) {
@@ -163,22 +163,22 @@ class Form extends \Modules\Ajax
         $email = Arr::get($this->post, 'email');
         $engine = Arr::get($this->post, 'engine');
         $year = Arr::get($this->post, 'year');
-        if (!$name) {
+        if (!$name OR mb_strlen($name, 'UTF-8') < 2) {
             $this->error('Имя введено неверно!');
         }
-        if (!$mark) {
+        if (!$mark OR mb_strlen($mark, 'UTF-8') < 2) {
             $this->error('Не указана марка!');
         }
-        if (!$model) {
+        if (!$model OR mb_strlen($model, 'UTF-8') < 2) {
             $this->error('Не указана модель!');
         }
         if (!$email) {
             $this->error('Не указан email!');
         }
-        if (!$engine) {
+        if (!$engine OR mb_strlen($engine, 'UTF-8') < 2) {
             $this->error('Не указан тип двигателя!');
         }
-        if (!$year) {
+        if (!$year OR mb_strlen($year, 'UTF-8') < 2) {
             $this->error('Не указан год выпуска!');
         }
 

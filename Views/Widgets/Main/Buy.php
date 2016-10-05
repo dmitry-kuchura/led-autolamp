@@ -64,7 +64,7 @@
                                name="name"
                                data-name="name"
                                data-rule-word="true"
-                               data-rule-mminlength="2"
+                               data-rule-minlength="2"
                                id="name" class="wInput">
                     </div>
                     <div class="wFormRow">

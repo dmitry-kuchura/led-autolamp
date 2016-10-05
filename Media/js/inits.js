@@ -244,6 +244,13 @@ jQuery(document).ready(function($) {
         }
     });
 
+    $('input, textarea').on('focus', function(){
+        $('.wHeader, .wHeaderFix').hide(100);
+    });
+    $('input, textarea').on('blur', function(){
+        $('.wHeader, .wHeaderFix').show(100);
+    });
+
     $(window).load(function() {
         // оборачивание iframe и video для адаптации
         wHTML.wTxtIFRAME();

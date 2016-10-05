@@ -1,37 +1,33 @@
 <?php
-    namespace Core;
-    use Core\QB\DB;
+namespace Core;
 
-/*
-* core_2011
-*/
+use Core\QB\DB;
 
-// -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
-// -----------------------------------------------------------------------------
+class Message
+{
 
-class Message {
-
-	static function GetMessage ($type, $message, $time = 3500) {
+    static function GetMessage($type, $message, $time = 3500)
+    {
         $message = addslashes($message);
-        switch($type){
+        switch ($type) {
             case 1:
-                $type='success';
+                $type = 'success';
                 break;
             case 2:
-                $type='danger';
+                $type = 'danger';
                 break;
             case 3:
-                $type='info';
+                $type = 'info';
                 break;
             default:
-                $type='warning';
+                $type = 'warning';
         }
-        $_SESSION['GLOBAL_MESSAGE'] = '<script type="text/javascript">$(document).ready(function(){generate("'.$message.'", "'.$type.'", '.(int) $time.');});</script>';
-	}
-	
-	static function GetMessage2 ($message, $time = 3500) {
-        $_SESSION['GLOBAL_MESSAGE'] = '<script type="text/javascript">$(document).ready(function(){generate("'.$message.'", "info", '.(int) $time.');});</script>';
-	}
-	
+        $_SESSION['GLOBAL_MESSAGE'] = '<script type="text/javascript">$(document).ready(function(){generate("' . $message . '", "' . $type . '", ' . (int)$time . ');});</script>';
+    }
+
+    static function GetMessage2($message, $time = 3500)
+    {
+        $_SESSION['GLOBAL_MESSAGE'] = '<script type="text/javascript">$(document).ready(function(){generate("' . $message . '", "info", ' . (int)$time . ');});</script>';
+    }
+
 }

@@ -296,7 +296,7 @@ jQuery(document).ready(function($) {
                 items: 1,
                 duration: 1000,
                 timeoutDuration: 3000,
-                fx: 'scroll'
+                fx: 'crossfade'
             },
             pagination: {
                 container: $('.pagg')

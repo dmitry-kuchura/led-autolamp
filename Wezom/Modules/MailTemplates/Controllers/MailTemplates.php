@@ -28,7 +28,7 @@ class MailTemplates extends \Wezom\Modules\Base
     {
         $result = $this->model->getRows(NULL, 'sort', 'ASC');
         $this->_filter = Widgets::get('Filter_Pages');
-        $this->_toolbar = Widgets::get('Toolbar_List');
+        $this->_toolbar = Widgets::get('Toolbar_ListReviews');
         $this->_content = View::tpl(
             array(
                 'result' => $result,

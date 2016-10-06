@@ -147,12 +147,12 @@
                 </div>
             </div>
         </div>
-        <?php if (Config::get('discount.enable') == 1): ?>
+        <?php
+        $from = strtotime(Config::get('discount.date_from'));
+        $to = strtotime(Config::get('discount.date_to'));
+        ?>
+        <?php if (Config::get('discount.enable') == 1 AND $to > time()): ?>
             <div class="sale_block">
-                <?php
-                $from = strtotime(Config::get('discount.date_from'));
-                $to = strtotime(Config::get('discount.date_to'));
-                ?>
                 <div class="sale_title"><span>скидка <?php echo Config::get('discount.percent'); ?>%</span>
                     с <?php echo date('d.m', $from); ?> до <?php echo date('d.m', $to); ?>
                 </div>

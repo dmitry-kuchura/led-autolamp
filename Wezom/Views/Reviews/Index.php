@@ -10,20 +10,6 @@
                     ), 'Имя'); ?>
                 </div>
                 <div class="col-md-2">
-                    <?php echo \Forms\Builder::input(array(
-                        'name' => 'date_s',
-                        'value' => Core\Arr::get($_GET, 'date_s', NULL),
-                        'class' => 'fPicker',
-                    ), 'Дата от'); ?>
-                </div>
-                <div class="col-md-2">
-                    <?php echo \Forms\Builder::input(array(
-                        'name' => 'date_po',
-                        'value' => Core\Arr::get($_GET, 'date_po', NULL),
-                        'class' => 'fPicker',
-                    ), 'Дата до'); ?>
-                </div>
-                <div class="col-md-2">
                     <?php $options = array('' => 'Все', 0 => 'Неопубликованы', 1 => 'Опубликованы'); ?>
                     <?php echo \Forms\Builder::select($options, Core\Arr::get($_GET, 'status', 2), array(
                         'name' => 'status',

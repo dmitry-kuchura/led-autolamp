@@ -48,7 +48,7 @@ class Cap extends \Wezom\Modules\Base
         $count = Model::countRows($status, $date_s, $date_po);
         $result = Model::getRows($status, 'id', 'DESC',  $this->limit, $this->offset);
         $pager = Pager::factory($this->page, $count, $this->limit)->create();
-        $this->_toolbar = Widgets::get('Toolbar_List', array('delete' => 1, 'add' => 1));
+        $this->_toolbar = Widgets::get('Toolbar_ListReviews', array('delete' => 1, 'add' => 1));
         $this->_content = View::tpl(
             array(
                 'result' => $result,

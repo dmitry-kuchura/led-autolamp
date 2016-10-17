@@ -38,12 +38,6 @@ class Reviews extends \Wezom\Modules\Base
         $name = NULL;
         $date_po = NULL;
         $status = NULL;
-        if (Arr::get($_GET, 'date_s')) {
-            $date_s = strtotime(Arr::get($_GET, 'date_s'));
-        }
-        if (Arr::get($_GET, 'date_po')) {
-            $date_po = strtotime(Arr::get($_GET, 'date_po'));
-        }
         if (isset($_GET['status']) && $_GET['status'] != '') {
             $status = Arr::get($_GET, 'status', 1);
         }
@@ -53,7 +47,7 @@ class Reviews extends \Wezom\Modules\Base
         $count = Model::countRows($status, $date_s, $date_po, $name);
         $result = Model::getRows($status, $date_s, $date_po, $name, 'date', 'DESC', $this->limit, $this->offset);
         $pager = Pager::factory($this->page, $count, $this->limit)->create();
-        $this->_toolbar = Widgets::get('Toolbar_List', array('delete' => 1, 'add' => 1));
+        $this->_toolbar = Widgets::get('Toolbar_ListReviews', array('delete' => 1, 'add' => 1));
         $this->_content = View::tpl(
             array(
                 'result' => $result,

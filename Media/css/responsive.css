@@ -99,8 +99,20 @@
     display: block; }
   .graf_top {
     margin-left: 0; }
+  .compare_name {font-size: 16px;}
+  .compare_text {
+    font-size: 12px;
+    line-height: 20px;
+    height: 120px;
+  }
   .graf_top .graf_info span + span {
     margin-top: 0; } }
+
+@media only screen and (max-width: 1023px) {
+  .compare_text {
+    height: auto;
+  }
+}
 
 @media only screen and (max-width: 720px) {
   .order_title {

@@ -75,7 +75,7 @@
                     <div class="counter_block">
                         <div class="spiner js-minus minus"></div>
                         <div class="counter js-couter">
-                            <input type="tel" data-count="1" value="1 комплект" data-name="count" name="count" id="count"
+                            <input type="tel" data-count="1" value="1 к-т" data-name="count" name="count" id="count"
                                    required
                                    class="wInput">
                         </div>

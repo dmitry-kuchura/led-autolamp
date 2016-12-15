@@ -927,9 +927,6 @@ a {
   min-width: 320px !important;
 }
 
-.form_title {
-  position: relative;
-}
 .form_title .real_price {
   display: inline-block;
   vertical-align: top;
@@ -940,7 +937,7 @@ a {
 .form_title .real_price span {
   position: absolute;
   top: -20px;
-  font-size: 15px;
+  font-size: 20px;
   line-height: 15px;
   color: #b4b4b4;
   left: 50%;

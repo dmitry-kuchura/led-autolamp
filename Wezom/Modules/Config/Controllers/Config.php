@@ -26,7 +26,7 @@
         function editAction () {
             if ($_POST) {
                 $errors = [];
-                if ($_POST['discount-date_from'] > $_POST['discount-date_to']) {
+                if (strtotime($_POST['discount-date_from']) > strtotime($_POST['discount-date_to'])) {
                     $errors[] = 'Дата "ОТ" не должна быть больше даты "ДО"! Но, хорошая попытка!';
                 }
                 $result = Common::factory('config')->getRows(1);

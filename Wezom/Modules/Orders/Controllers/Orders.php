@@ -80,12 +80,18 @@ class Orders extends \Wezom\Modules\Base
         $this->_seo['h1'] = 'Заказ №' . Route::param('id');
         $this->_seo['title'] = 'Заказ №' . Route::param('id');
         $this->setBreadcrumbs('Заказ №' . Route::param('id'), 'wezom/' . Route::controller() . '/edit/' . (int)Route::param('id'));
+        if ($result == null) {
+            $tpl = '/Noresult';
+        } else {
+            $this->_toolbar = Widgets::get('Toolbar_Edit', ['noAdd' => true]);
+            $tpl = '/Inner';
+        }
 
         $this->_content = View::tpl(
             array(
                 'obj' => $result,
                 'tpl_folder' => $this->tpl_folder,
-            ), $this->tpl_folder . '/Inner');
+            ), $this->tpl_folder . $tpl);
     }
 
     function addAction()

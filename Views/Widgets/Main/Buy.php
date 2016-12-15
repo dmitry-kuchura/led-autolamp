@@ -27,7 +27,7 @@
                     </svg>
                 </div>
                 <div class="buy_name">Гарантия</div>
-                <div class="buy_text">12 месяцев</div>
+                <div class="buy_text">2 года</div>
             </div>
         </div>
     </div>

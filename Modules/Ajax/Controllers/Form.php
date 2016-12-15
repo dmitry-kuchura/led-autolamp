@@ -109,6 +109,8 @@ class Form extends \Modules\Ajax
         }
 
         $this->success('Вы успешно оформили заказ! Менеджер свяжется с Вами в ближайшее время!');
+
+
     }
 
     public function discountAction()

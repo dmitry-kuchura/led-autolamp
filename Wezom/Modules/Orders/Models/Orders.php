@@ -63,8 +63,9 @@ class Orders extends \Core\Common
 
     public static function getRow($value)
     {
-        $result = DB::select(static::$table . '.*')
+        $result = DB::select(static::$table . '.*', ['cap.name', 'cap_name'])
             ->from(static::$table)
+            ->join('cap', 'LEFT')->on('cap.id', '=', 'orders.cap')
             ->where(static::$table . '.id', '=', $value);
         return $result->find();
     }

@@ -76,7 +76,12 @@ class Selection extends \Wezom\Modules\Base
         } else {
             $result = Model::getRow(Route::param('id'));
         }
-        $this->_toolbar = Widgets::get('Toolbar_Edit', ['noAdd' => true]);
+        if ($result == null) {
+            $tpl = '/Noresult';
+        } else {
+            $this->_toolbar = Widgets::get('Toolbar_Edit', ['noAdd' => true]);
+            $tpl = '/Form';
+        }
         $this->_seo['h1'] = 'Редактирование';
         $this->_seo['title'] = 'Редактирование';
         $this->setBreadcrumbs('Редактирование', 'wezom/' . Route::controller() . '/edit/' . Route::param('id'));
@@ -84,7 +89,7 @@ class Selection extends \Wezom\Modules\Base
             [
                 'obj' => $result,
                 'tpl_folder' => $this->tpl_folder,
-            ], $this->tpl_folder . '/Form');
+            ], $this->tpl_folder . $tpl);
     }
 
     function deleteAction()

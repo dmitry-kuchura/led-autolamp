@@ -9,6 +9,13 @@
         protected $get;
         protected $files;
 
+		
+		
+
+		
+		
+		
+		
         public function before() {
             parent::before();
             $this->post = $_POST;
@@ -16,6 +23,9 @@
             $this->files = $_FILES;
         }
 
+		public function conversion() {
+			
+        }
 
         // Generate Ajax answer
         public function answer( $data ) {
@@ -32,7 +42,9 @@
                 );
             }
             $data['success'] = true;
+			//echo "<script type='text/javascript'>console.log('test');</script>";
             $this->answer( $data );
+
         }
 
 

@@ -8,7 +8,7 @@
             <img src="<?php echo Core\HTML::media('pic/detals.png'); ?>" alt="">
         </div>
         <div data-form="true" class="top_form wForm wFormDef" data-ajax="order">
-            <div class="form_title">Всего <?php echo Config::get('static.price'); ?> грн</div>
+            <div class="form_title">Всего<div class="real_price"><span><?php echo Config::get('static.old_price'); ?>грн</span> </div> <?php echo Config::get('static.static.old_price'); ?> грн</div>
             <div class="wFormRow">
                 <label for="name">Введите имя</label>
                 <input type="text" required
@@ -41,7 +41,7 @@
                 <div class="counter_block">
                     <div class="spiner js-minus minus"></div>
                     <div class="counter js-couter">
-                        <input type="tel" data-count="1" value="1 шт" data-name="count" name="count" id="count" required
+                        <input type="tel" data-count="1" value="1 комплект" data-name="count" name="count" id="count" required
                                class="wInput">
                     </div>
                     <div class="spiner js-plus plus"></div>

@@ -133,6 +133,14 @@
                                                     $(resp.insert.selector).html(resp.insert.html);
                                                 }
                                                 if (resp.response) {
+
+													if(resp.response == 'Ваш подбор цоколя принят, наш менеджер свяжется с Вами в ближайшее время!'){
+														ga('send', 'event', 'contact', 'contactfooter');
+														yaCounter40835434.reachGoal('contactfooter');
+													} else {
+														ga('send', 'event', 'buy', 'thankyou');
+														yaCounter40835434.reachGoal('thankyou');
+													}
                                                     generate(resp.response, 'success', 3500);
                                                 }
                                             } else {

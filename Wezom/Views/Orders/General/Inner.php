@@ -25,10 +25,10 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label">Цоколь</label>
-                        <?php echo $obj->cap_name; ?><span style="color: #ccc; font-style: italic;"> ( грн. )</span>
+                        <?php echo $obj->cap_name; ?><span style="color: #ccc; font-style: italic;"></span>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Цоколь</label>
+                        <label class="control-label">Кол-во</label>
                         <?php echo $obj->count; ?><span style="color: #ccc; font-style: italic;"> ( шт. )</span>
                     </div>
                 </div>

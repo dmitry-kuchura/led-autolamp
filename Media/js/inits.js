@@ -244,10 +244,10 @@ jQuery(document).ready(function($) {
         }
     });
 
-    $('input, textarea').on('focus', function(){
+    $('.touch input, textarea').on('focus', function(){
         $('.wHeader, .wHeaderFix').hide(100);
     });
-    $('input, textarea').on('blur', function(){
+    $('.touch input, textarea').on('blur', function(){
         $('.wHeader, .wHeaderFix').show(100);
     });
 

@@ -1,3 +1,6 @@
+<?php if (strripos($_SERVER['REQUEST_URI'], 'edit') AND $obj == null): ?>
+    <p>Заказ был удален!</p>
+<?php else: ?>
 <?php echo \Forms\Builder::open(); ?>
     <div class="form-actions" style="display: none;">
         <?php echo \Forms\Form::submit(['name' => 'name', 'value' => 'Отправить', 'class' => 'submit btn btn-primary pull-right']); ?>
@@ -44,3 +47,4 @@
         </div>
     </div>
 <?php echo \Forms\Form::close(); ?>
+<?php endif; ?>

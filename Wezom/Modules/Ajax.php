@@ -22,6 +22,7 @@
         }
 
 
+
         // Generate Ajax success answer
         public function success( $data = array() ) {
             if( !is_array( $data ) ) {
@@ -31,6 +32,7 @@
             }
             $data['success'] = true;
             $this->answer( $data );
+
         }
 
 
